@@ -818,7 +818,7 @@ const CHAPTERS = [
    ------------------------------------------------------------- */
 function InfoSourcesChart() {
   return (
-    <div style={styles.chartCard}>
+    <div style={styles.chartCard} className="ohlq-chart-card">
       <div style={styles.chartTitle}>Where Shoppers Look for Liquor Information</div>
       <ResponsiveContainer width="100%" height={430}>
         <BarChart data={INFO_SOURCE_DATA} layout="vertical" margin={{ top: 4, right: 24, left: 4, bottom: 4 }}>
@@ -872,7 +872,7 @@ function WaveTrendChart({ type }) {
       ];
 
   return (
-    <div style={styles.chartCard}>
+    <div style={styles.chartCard} className="ohlq-chart-card">
       <div style={styles.chartTitle}>{title}</div>
       <ResponsiveContainer width="100%" height={320}>
         <LineChart data={data} margin={{ top: 8, right: 24, left: 4, bottom: 4 }}>
@@ -912,7 +912,7 @@ function sigColor(sig) {
 function ClusterReferenceTable() {
   const cols = CLUSTER_TABLE.columns;
   return (
-    <div style={styles.tableWrap}>
+    <div style={styles.tableWrap} className="ohlq-table-wrap">
       <table style={styles.table}>
         <thead>
           <tr>
@@ -1020,6 +1020,9 @@ const styles = {
     padding: "0 20px 20px 20px",
     borderBottom: `3px solid ${ACCENT}`,
     marginBottom: 12,
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
   },
   brandName: {
     fontSize: 20,
@@ -1367,13 +1370,141 @@ const styles = {
 };
 
 /* ---------------------------------------------------------------
-   COMPONENT
+   RESPONSIVE / MOBILE CSS
+   Inline styles above define the desktop layout. This stylesheet
+   uses !important to override those inline styles at narrower
+   viewports (inline styles otherwise beat plain CSS specificity).
    ------------------------------------------------------------- */
+const RESPONSIVE_CSS = `
+  .ohlq-mobile-topbar { display: none; }
+  .ohlq-mobile-overlay { display: none; }
+  .ohlq-mobile-close-btn { display: none; }
+
+  @media (max-width: 860px) {
+    .ohlq-app { flex-direction: column !important; }
+
+    .ohlq-mobile-topbar {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 3px solid ${ACCENT};
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 900;
+    }
+    .ohlq-mobile-topbar-brand {
+      font-size: 15px;
+      font-weight: 800;
+      color: ${ACCENT};
+      letter-spacing: 0.4px;
+    }
+    .ohlq-mobile-topbar-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: ${MUTED};
+      margin-left: 6px;
+    }
+    .ohlq-hamburger-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid ${BORDER};
+      background: #FFFFFF;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .ohlq-hamburger-btn span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: ${CHARCOAL};
+    }
+    .ohlq-mobile-close-btn {
+      display: block !important;
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: transparent;
+      color: ${MUTED};
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .ohlq-mobile-overlay.open {
+      display: block !important;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 20, 20, 0.45);
+      z-index: 999;
+    }
+
+    .ohlq-sidebar {
+      display: none !important;
+    }
+    .ohlq-sidebar.open {
+      display: block !important;
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      height: 100vh !important;
+      width: 84% !important;
+      max-width: 300px !important;
+      z-index: 1000;
+    }
+
+    .ohlq-main {
+      padding: 20px 16px 56px 16px !important;
+      max-width: 100% !important;
+    }
+    .ohlq-chapter-title {
+      font-size: 24px !important;
+    }
+    .ohlq-stat-grid {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+      margin-bottom: 24px !important;
+    }
+    .ohlq-chart-card {
+      padding: 14px 12px 10px 12px !important;
+    }
+    .ohlq-table-wrap {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ohlq-narrative {
+      font-size: 14.5px !important;
+    }
+    .ohlq-input-row {
+      flex-direction: column !important;
+    }
+    .ohlq-send-btn {
+      width: 100% !important;
+    }
+  }
+`;
+
+
 export default function OHLQExplorer() {
   const [activeChapterId, setActiveChapterId] = useState(CHAPTERS[0].id);
   const [segment, setSegment] = useState("all");
   const [qaState, setQaState] = useState({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logEndRef = useRef(null);
+
+  function goToChapter(id) {
+    setActiveChapterId(id);
+    setMobileMenuOpen(false);
+  }
 
   const chapter = CHAPTERS.find((c) => c.id === activeChapterId);
   const segKey = chapter.hasSegments ? segment : "all";
@@ -1454,17 +1585,51 @@ export default function OHLQExplorer() {
   }
 
   return (
-    <div style={styles.app}>
+    <div style={styles.app} className="ohlq-app">
+      <style>{RESPONSIVE_CSS}</style>
+
+      {/* MOBILE TOP BAR */}
+      <div className="ohlq-mobile-topbar">
+        <button
+          className="ohlq-hamburger-btn"
+          onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open chapter menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <div className="ohlq-mobile-topbar-brand">
+          OHLQ <span className="ohlq-mobile-topbar-sub">Wave 6</span>
+        </div>
+        <div style={{ width: 34 }} />
+      </div>
+
+      {/* MOBILE BACKDROP */}
+      <div
+        className={`ohlq-mobile-overlay${mobileMenuOpen ? " open" : ""}`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
       {/* SIDEBAR */}
-      <div style={styles.sidebar}>
-        <div style={styles.sidebarHeader}>
-          <div style={styles.brandName}>OHLQ</div>
-          <div style={styles.brandSub}>Brand Tracker · Wave 6 · Feb 2026</div>
+      <div style={styles.sidebar} className={`ohlq-sidebar${mobileMenuOpen ? " open" : ""}`}>
+        <div style={styles.sidebarHeader} className="ohlq-sidebar-header">
+          <div>
+            <div style={styles.brandName}>OHLQ</div>
+            <div style={styles.brandSub}>Brand Tracker · Wave 6 · Feb 2026</div>
+          </div>
+          <button
+            className="ohlq-mobile-close-btn"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close chapter menu"
+          >
+            ✕
+          </button>
         </div>
         {CHAPTERS.map((c) => (
           <React.Fragment key={c.id}>
             {c.id === "appendix" && <div style={styles.navDivider} />}
-            <div style={styles.navItem(c.id === activeChapterId)} onClick={() => setActiveChapterId(c.id)}>
+            <div style={styles.navItem(c.id === activeChapterId)} onClick={() => goToChapter(c.id)}>
               <span style={styles.navNumber(c.id === activeChapterId)}>{c.number}</span>
               <span style={styles.navLabel}>{c.title}</span>
             </div>
@@ -1473,7 +1638,7 @@ export default function OHLQExplorer() {
       </div>
 
       {/* MAIN */}
-      <div style={styles.main}>
+      <div style={styles.main} className="ohlq-main">
         <div style={styles.chapterEyebrow}>
           {chapter.number === "Intro"
             ? "Executive Summary"
@@ -1481,7 +1646,7 @@ export default function OHLQExplorer() {
             ? "Appendix"
             : `Chapter ${chapter.number}`}
         </div>
-        <h1 style={styles.chapterTitle}>{chapter.title}</h1>
+        <h1 style={styles.chapterTitle} className="ohlq-chapter-title">{chapter.title}</h1>
         <p style={styles.framing}>{chapter.framing}</p>
 
         {chapter.hasSegments && (
@@ -1496,13 +1661,13 @@ export default function OHLQExplorer() {
 
         {chapter.isAppendix ? (
           <>
-            <p style={styles.narrative}>{content.narrative}</p>
+            <p style={styles.narrative} className="ohlq-narrative">{content.narrative}</p>
             <ClusterReferenceTable />
           </>
         ) : (
           <>
             {content.stats.length > 0 && (
-              <div style={styles.statGrid}>
+              <div style={styles.statGrid} className="ohlq-stat-grid">
                 {content.stats.map((stat, i) => (
                   <div style={styles.statCard} key={i}>
                     <div style={styles.statValue}>{stat.value}</div>
@@ -1513,7 +1678,7 @@ export default function OHLQExplorer() {
               </div>
             )}
 
-            <p style={styles.narrative}>{content.narrative}</p>
+            <p style={styles.narrative} className="ohlq-narrative">{content.narrative}</p>
 
             {chapter.hasChart === "info-sources" && <InfoSourcesChart />}
             {chapter.hasChart === "awareness-trend" && <WaveTrendChart type="awareness-trend" />}
@@ -1560,7 +1725,7 @@ export default function OHLQExplorer() {
             </div>
           )}
 
-          <div style={styles.inputRow}>
+          <div style={styles.inputRow} className="ohlq-input-row">
             <input
               style={styles.input}
               type="text"
@@ -1573,6 +1738,7 @@ export default function OHLQExplorer() {
             />
             <button
               style={chapterQa.loading ? styles.sendBtnDisabled : styles.sendBtn}
+              className="ohlq-send-btn"
               disabled={chapterQa.loading}
               onClick={() => askQuestion(chapterQa.input)}
             >
