@@ -1364,73 +1364,16 @@ const styles = {
     marginBottom: 4,
     lineHeight: 1.4,
   },
-  gateWrap: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "#FAFAFA",
-    fontFamily: FONT,
-  },
-  gateCard: {
-    width: 360,
-    maxWidth: "90vw",
-    background: "#FFFFFF",
-    border: `1px solid ${BORDER}`,
-    borderTop: `4px solid ${ACCENT}`,
-    borderRadius: 2,
-    padding: "32px 28px",
-    textAlign: "center",
-  },
-  gateBrand: {
-    fontSize: 24,
-    fontWeight: 800,
-    color: ACCENT,
-    letterSpacing: 0.5,
-  },
-  gateSub: {
-    fontSize: 12,
-    color: MUTED,
-    marginTop: 2,
-    marginBottom: 20,
-  },
-  gateText: {
-    fontSize: 13.5,
-    color: TEXT,
-    lineHeight: 1.5,
-    marginBottom: 16,
-  },
-  gateError: {
-    fontSize: 12.5,
-    color: ACCENT,
-    fontWeight: 700,
-    marginTop: 10,
-    textAlign: "left",
-  },
 };
 
 /* ---------------------------------------------------------------
    COMPONENT
    ------------------------------------------------------------- */
-const REPORT_PASSWORD = "stretch2026";
-
 export default function OHLQExplorer() {
-  const [unlocked, setUnlocked] = useState(false);
-  const [pwInput, setPwInput] = useState("");
-  const [pwError, setPwError] = useState(false);
   const [activeChapterId, setActiveChapterId] = useState(CHAPTERS[0].id);
   const [segment, setSegment] = useState("all");
   const [qaState, setQaState] = useState({});
   const logEndRef = useRef(null);
-
-  function handleUnlock() {
-    if (pwInput === REPORT_PASSWORD) {
-      setUnlocked(true);
-      setPwError(false);
-    } else {
-      setPwError(true);
-    }
-  }
 
   const chapter = CHAPTERS.find((c) => c.id === activeChapterId);
   const segKey = chapter.hasSegments ? segment : "all";
@@ -1510,36 +1453,6 @@ export default function OHLQExplorer() {
     }
   }
 
-  if (!unlocked) {
-    return (
-      <div style={styles.gateWrap}>
-        <div style={styles.gateCard}>
-          <div style={styles.gateBrand}>OHLQ</div>
-          <div style={styles.gateSub}>Brand Tracker · Wave 6 · Feb 2026</div>
-          <p style={styles.gateText}>This report is password protected. Enter the password to continue.</p>
-          <input
-            type="password"
-            style={styles.input}
-            value={pwInput}
-            onChange={(e) => {
-              setPwInput(e.target.value);
-              setPwError(false);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") handleUnlock();
-            }}
-            placeholder="Password"
-            autoFocus
-          />
-          {pwError && <div style={styles.gateError}>Incorrect password. Please try again.</div>}
-          <button style={{ ...styles.sendBtn, width: "100%", marginTop: 12 }} onClick={handleUnlock}>
-            Unlock Report
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div style={styles.app}>
       {/* SIDEBAR */}
@@ -1548,7 +1461,7 @@ export default function OHLQExplorer() {
           <div style={styles.brandName}>OHLQ</div>
           <div style={styles.brandSub}>Brand Tracker · Wave 6 · Feb 2026</div>
         </div>
-        {CHAPTERS.map((c, i) => (
+        {CHAPTERS.map((c) => (
           <React.Fragment key={c.id}>
             {c.id === "appendix" && <div style={styles.navDivider} />}
             <div style={styles.navItem(c.id === activeChapterId)} onClick={() => setActiveChapterId(c.id)}>
