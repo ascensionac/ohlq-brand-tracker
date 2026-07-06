@@ -81,13 +81,6 @@ const SATISFACTION_TREND_DATA = WAVE_LABELS.map((wave, i) => ({
 
 /* ---------------------------------------------------------------
    APPENDIX: Shopper Clusters reference table
-   Reproduced from the client's cluster reference deck. Colors flag
-   statistically significant differences vs. the other clusters
-   shown, at 95% confidence: red = significantly lower, blue =
-   significantly higher, black = no significant difference.
-   Note: a sixth cluster, Frequent Low-Cost Moderate Buyers
-   (~5% of shoppers), is tracked in the full crosstab but is not
-   part of this particular summary table.
    ------------------------------------------------------------- */
 const CLUSTER_TABLE = {
   columns: [
@@ -241,11 +234,11 @@ CHAPTER 3 — OCCASION (published report, All Shoppers only, no cluster cut avai
 
 CHAPTER 4 — INFORMATION SOURCES (published report, All Shoppers only): Word of mouth 50%, in-store signage/displays 30%, store employees 27%, bartenders/servers 25% — all outrank digital. Top digital: Facebook 38%, search 35%, YouTube 34%, Instagram 21%, TikTok 21%. Top industry sources: general liquor/spirits sites 39%, liquor brand sites 36%. OHLQ.com 22%; owned channels app 13%, social 11%, email 11% trail. AI tools 12% (first wave measured). App drives highest visit frequency (18% daily, 31% weekly) vs. OHLQ.com (monthly or less). Owned-channel usefulness 83%-89% top-2-box.
 
-CHAPTER 6 — AWARENESS, full wave history (W1→W6) published in the report's key comparison table: Unaided Awareness 21%, 21%, 29%, 25%, 22%, 25%. Aided Awareness 54%, 57%, 60%, 62%, 61%, 60%. Logo Recall 35%, 42%, 54%, 62%, 74%, 70%. OHLQ ranks #2 in aided awareness behind Kroger (up from #4 at baseline). Name-specific mentions grew 2%→12% since baseline; generic "state store" references declined 19%→13%. Four new competitors entered W6: Total Wine, Spec's, WhiskeySearcher, Wine Searcher. Logo recall declined 4 points from 74% in Wave 5 to 70% in Wave 6 — the first decline after five consecutive waves of growth. OHLQ locations are top source of logo recall (49%).
+CHAPTER 6 — AWARENESS, full wave history (W1→W6) published in the report's key comparison table: Unaided Awareness 21%, 21%, 29%, 25%, 22%, 25%. Aided Awareness 54%, 57%, 60%, 62%, 61%, 60%. Logo Recall 35%, 42%, 54%, 62%, 74%, 70%. OHLQ ranks #2 in aided awareness behind Kroger (up from #4 at baseline). Name-specific mentions grew 2%→12% since baseline; generic "state store" references declined 19%→13%. Four new competitors entered the consideration set for the first time in Wave 6: Total Wine, Spec's, WhiskeySearcher, Wine Searcher. Logo recall declined 4 points from 74% in Wave 5 to 70% in Wave 6 — the first decline after five consecutive waves of growth. OHLQ locations are top source of logo recall (49%).
 
 CHAPTER 7 — SATISFACTION, full wave history (W1→W6) published in the report's key comparison table: Satisfaction Top-2-Box 91%, 94%, 90%, 91%, 93%, 97%. NPS 49.6, 54.2, 60.0, 58.0, 69.6, 62.3. Wave 5 (Jan 2025) was fielded immediately after the November 2024 presidential election, a period of measurably elevated consumer confidence across all retailers (Giant Eagle NPS spiked 61.4→70.3, Kroger 48.1→63.3, independents 64.9→79.0 in that wave). Wave 6's NPS of 62.3 represents a return to baseline and remains well above Wave 1's 49.6. Trust rose 5 points, from 78% to 83%. OHLQ.com satisfaction hit an all-time high of 95%.
 
-CHAPTER 8 — PROMOTION (published report, All Shoppers only): Unaided communication recall steady at 21%, though 21-34 year-old recall dropped 34%→21% while 35-54 grew 20%→28%. "Raise a Glass. Responsibly." recall dropped 69%→49% (-20 pts), falling below every prior wave. "Last Call" tag recalled by only 20%, and most who recall it think it means bar closing time. "Liquordation" recalled by 11%, but 83% of those who recognize it correctly identify it as a discount/sale signal.
+CHAPTER 8 — PROMOTION (published report, All Shoppers only): Unaided communication recall steady at 21%, though 21-34 year-old recall dropped 34%→21% while 35-54 grew 20%→28%. "Raise a Glass. Responsibly." recall dropped 69%→49% (-20 pts), falling below every prior wave after years of steady growth. "Last Call" tag recalled by only 20%, and most who recall it think it means bar closing time rather than a discontinued product event. By contrast, "Liquordation" is recalled by 11% of shoppers, and 83% of those who recognize it correctly identify it as a discount or sale signal.
 
 APPENDIX — CLUSTER REFERENCE TABLE (client deck, 5 of the 6 clusters; Frequent Low-Cost Moderate Buyers, ~5% of shoppers, is tracked separately in the full crosstab but not shown in this summary table): Light Spirits (39% of shoppers, $1,569 annual spend, top categories vodka/Am. whiskey/tequila, monthly frequency, significantly LOWER other-category crossover across the board). Variety Cordial (5%, $3,080, cordial/vodka/Am. whiskey/rum/tequila, monthly, significantly HIGHER beer/wine/hard-seltzer/NA-beverage/RTD crossover but LOWER cannabis/THC). Gin Mixologists (13%, $3,133, gin/vodka/tequila/Am. whiskey/rum, 2-3x monthly, mostly higher other-category crossover with mixed results on hard seltzer and RTD). Whiskies Enthusiast (27%, $3,851, Am. whiskey/vodka/tequila/rum/Canadian whisky, 2-3x monthly, significantly HIGHER crossover on nearly every other category including cannabis and THC). Spirited Scotch Connoisseur (12%, $4,627 — highest annual spend of any cluster, scotch/vodka/tequila/Am. whiskey/rum, 2-3x monthly, significantly HIGHER crossover across the board). Colors in the table indicate statistically significant differences vs. the other clusters shown at 95% confidence: red = significantly lower, blue = significantly higher, black = no significant difference.
 
@@ -996,6 +989,11 @@ function ClusterReferenceTable() {
 
 /* ---------------------------------------------------------------
    STYLES
+   TWO FIXES applied here vs. previous version:
+   1. navItem: alignItems changed from "center" to "flex-start"
+      + minHeight: 40 added so single-line items stay consistent height
+   2. navNumber: paddingTop: 2 added to optically align number with
+      first line of wrapped text; flexShrink: 0 prevents compression
    ------------------------------------------------------------- */
 const styles = {
   app: {
@@ -1037,19 +1035,22 @@ const styles = {
   },
   navItem: (active) => ({
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-start",
     gap: 10,
     padding: "10px 20px",
     cursor: "pointer",
     background: active ? ACCENT : "transparent",
     color: active ? "#FFFFFF" : TEXT,
     borderLeft: active ? `3px solid ${CHARCOAL}` : "3px solid transparent",
+    minHeight: 40,
   }),
   navNumber: (active) => ({
     fontSize: 11,
     fontWeight: 700,
     color: active ? "#F7D9DB" : MUTED,
     minWidth: 30,
+    paddingTop: 2,
+    flexShrink: 0,
   }),
   navLabel: {
     fontSize: 13.5,
@@ -1371,9 +1372,6 @@ const styles = {
 
 /* ---------------------------------------------------------------
    RESPONSIVE / MOBILE CSS
-   Inline styles above define the desktop layout. This stylesheet
-   uses !important to override those inline styles at narrower
-   viewports (inline styles otherwise beat plain CSS specificity).
    ------------------------------------------------------------- */
 const RESPONSIVE_CSS = `
   .ohlq-mobile-topbar { display: none; }
