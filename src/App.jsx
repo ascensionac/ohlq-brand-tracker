@@ -1356,24 +1356,24 @@ const styles = {
     display: "flex",
     alignItems: "flex-start",
     gap: 10,
-    padding: "10px 20px",
+    padding: "8px 20px",
     cursor: "pointer",
     background: active ? ACCENT : "transparent",
     color: active ? "#FFFFFF" : TEXT,
     borderLeft: active ? `3px solid ${CHARCOAL}` : "3px solid transparent",
-    minHeight: 40,
   }),
   navNumber: (active) => ({
     fontSize: 11,
     fontWeight: 700,
     color: active ? "#F7D9DB" : MUTED,
-    minWidth: 30,
-    paddingTop: 2,
+    minWidth: 28,
     flexShrink: 0,
+    lineHeight: "1.3",
   }),
   navLabel: {
-    fontSize: 13.5,
+    fontSize: 13,
     lineHeight: 1.3,
+    textAlign: "left",
   },
   navDivider: {
     borderTop: `1px solid ${BORDER}`,
@@ -1723,6 +1723,9 @@ const RESPONSIVE_CSS = `
       color: ${MUTED};
       margin-left: 6px;
     }
+    .ohlq-sidebar .ohlq-nav-item-label {
+      text-align: left !important;
+    }
     .ohlq-hamburger-btn {
       width: 34px;
       height: 34px;
@@ -1948,7 +1951,7 @@ export default function OHLQExplorer() {
             {c.id === "appendix" && <div style={styles.navDivider} />}
             <div style={styles.navItem(c.id === activeChapterId)} onClick={() => goToChapter(c.id)}>
               <span style={styles.navNumber(c.id === activeChapterId)}>{c.number}</span>
-              <span style={styles.navLabel}>{c.title}</span>
+              <span style={styles.navLabel} className="ohlq-nav-item-label">{c.title}</span>
             </div>
           </React.Fragment>
         ))}
