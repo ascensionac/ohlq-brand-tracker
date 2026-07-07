@@ -34,7 +34,6 @@ const SEGMENTS = [
   { id: "we", label: "Whisky Enthusiasts" },
   { id: "ls", label: "Light Spirit Drinkers" },
   { id: "gm", label: "Gin-Lovers Mixologists" },
-  { id: "cannabis", label: "Cannabis Purchasers" },
 ];
 
 /* ---------------------------------------------------------------
@@ -78,6 +77,95 @@ const SATISFACTION_TREND_DATA = WAVE_LABELS.map((wave, i) => ({
   "Satisfaction (Top-2-Box)": [91, 94, 90, 91, 93, 97][i],
   NPS: [49.6, 54.2, 60.0, 58.0, 69.6, 62.3][i],
 }));
+
+
+// ── NEW CHART DATA ────────────────────────────────────────────────
+
+// Ch1: Clusters — size and annual spend
+const CLUSTER_DIST_DATA = [
+  { cluster: "Light Spirit Drinkers",  pct: 39, spend: 1569, color: "#A3A3A3" },
+  { cluster: "Whisky Enthusiasts",     pct: 27, spend: 3851, color: "#CF343E" },
+  { cluster: "Gin-Lovers Mixologists", pct: 13, spend: 3133, color: "#333333" },
+  { cluster: "Spirited Scotch Conn.",  pct: 12, spend: 4627, color: "#6B6B6B" },
+  { cluster: "Variety Cordial",        pct:  5, spend: 3080, color: "#BBBBBB" },
+  { cluster: "Freq. Low-Cost Mod.",    pct:  4, spend: null,  color: "#E0E0E0" },
+];
+
+// Ch2: Category W5 vs W6
+const CATEGORY_WOW_DATA = [
+  { cat: "Vodka",           w5: 68, w6: 68 },
+  { cat: "Tequila",         w5: 54, w6: 55 },
+  { cat: "Am. Whiskey",     w5: 56, w6: 51 },
+  { cat: "Canadian Whisky", w5: 34, w6: 33 },
+  { cat: "Rum",             w5: 36, w6: 37 },
+  { cat: "Irish Whiskey",   w5: 28, w6: 24 },
+  { cat: "Brandy/Cognac",   w5: 25, w6: 22 },
+  { cat: "RTD Cocktails",   w5: 27, w6: 29 },
+  { cat: "Scotch",          w5: 15, w6: 16 },
+  { cat: "Gin",             w5: 18, w6: 20 },
+  { cat: "Non-Alcoholic",   w5: 10, w6: 15 },
+].sort((a, b) => b.w6 - a.w6);
+
+// Ch3: Occasions heatmap
+const OCCASION_DATA = [
+  { cat: "American Whiskey", personal: 63, restock: 48, hosting: 38, gifting: 32, cocktail: 16, exploring: 19, impulse: 15 },
+  { cat: "Vodka",            personal: 61, restock: 47, hosting: 38, gifting: 22, cocktail: 26, exploring: 19, impulse: 11 },
+  { cat: "Tequila",          personal: 59, restock: 45, hosting: 42, gifting: 22, cocktail: 23, exploring: 17, impulse: 13 },
+  { cat: "Rum",              personal: 55, restock: 43, hosting: 34, gifting: 26, cocktail: 28, exploring: 18, impulse: 10 },
+  { cat: "Canadian Whisky",  personal: 50, restock: 48, hosting: 32, gifting: 24, cocktail: 12, exploring: 20, impulse: 12 },
+  { cat: "RTD Cocktails",    personal: 51, restock: 29, hosting: 42, gifting: 17, cocktail: 19, exploring: 22, impulse: 19 },
+  { cat: "Irish Whiskey",    personal: 59, restock: 43, hosting: 39, gifting: 34, cocktail: 20, exploring: 19, impulse: 13 },
+  { cat: "Brandy/Cognac",    personal: 48, restock: 51, hosting: 35, gifting: 34, cocktail: 17, exploring: 19, impulse: 11 },
+  { cat: "Scotch",           personal: 49, restock: 42, hosting: 38, gifting: 34, cocktail: 19, exploring: 23, impulse: 11 },
+  { cat: "Gin",              personal: 41, restock: 32, hosting: 32, gifting: 25, cocktail: 27, exploring: 19, impulse: 12 },
+  { cat: "Japanese/Intl.",   personal: 33, restock: 43, hosting: 29, gifting: 38, cocktail: 43, exploring: 38, impulse: 14 },
+];
+const OCCASION_COLS = [
+  { key: "personal", label: "Personal Use" },
+  { key: "restock",  label: "Restock" },
+  { key: "hosting",  label: "Hosting" },
+  { key: "gifting",  label: "Gifting" },
+  { key: "cocktail", label: "Cocktail/Recipe" },
+  { key: "exploring",label: "Exploring New" },
+  { key: "impulse",  label: "Impulse" },
+];
+
+// Ch5: Attributes scatter
+const ATTRIBUTE_SCATTER_DATA = [
+  { name: "Convenient Shopping",       importance: 87, performance: 85 },
+  { name: "Clean/Organized Env.",      importance: 88, performance: 81 },
+  { name: "Brand I Trust",             importance: 86, performance: 81 },
+  { name: "Easy to Navigate",          importance: 88, performance: 85 },
+  { name: "Good Value",                importance: 90, performance: 77 },
+  { name: "Wide Assortment",           importance: 84, performance: 88 },
+  { name: "Helpful Displays",          importance: 75, performance: 71 },
+  { name: "Knowledgeable Staff",       importance: 71, performance: 75 },
+  { name: "Helps Me Learn/Explore",    importance: 56, performance: 67 },
+  { name: "Welcoming Environment",     importance: 76, performance: 78 },
+  { name: "Responsible Drinking Info", importance: 50, performance: 56 },
+  { name: "Community Support",         importance: 57, performance: 63 },
+];
+
+// Ch9: Cannabis crossover by cluster
+const CANNABIS_CROSSOVER_DATA = [
+  { cluster: "Gin-Lovers Mix.",    cannabis: 56.1, thc: 21.7 },
+  { cluster: "Whisky Enthusiasts", cannabis: 52.1, thc: 23.6 },
+  { cluster: "All Shoppers",       cannabis: 47.4, thc: 19.1 },
+  { cluster: "Light Spirit Dr.",   cannabis: 41.3, thc: 13.8 },
+];
+
+// Helper functions for heatmap (module-level to avoid nested function issues)
+function heatmapCellColor(val) {
+  const maxVal = 65;
+  const intensity = Math.min(val / maxVal, 1);
+  const r = Math.round(207 + (255 - 207) * (1 - intensity));
+  const g = Math.round(52  + (255 - 52)  * (1 - intensity));
+  const b = Math.round(62  + (255 - 62)  * (1 - intensity));
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+function heatmapTextColor(val) {
+  return val / 65 > 0.5 ? "#FFFFFF" : "#262626";
+}
 
 /* ---------------------------------------------------------------
    APPENDIX: Shopper Clusters reference table
@@ -164,7 +252,7 @@ STUDY: Wave 6 of an annual brand awareness tracker. Two data sources are used he
 (1) The published Wave 6 report, n=500, Ohio residents 21+, purchased high-proof liquor in past 6 months, fielded February 2026.
 (2) A separate purchasing-cluster crosstab (LTV Cluster Crosstabs), base n=990 (a larger, natural-fallout-inclusive sample used specifically for cluster-level analysis), which breaks every question out by six purchasing clusters. Figures from the two sources may differ slightly in base size but are closely consistent (e.g., overall NPS is 62.3 in the report and 62.5 in the crosstab).
 
-PURCHASING CLUSTERS (from crosstab, n=990): Whisky Enthusiasts (WE, n=292), Spirited Scotch Connoisseurs (SC, n=51), Light Spirit Drinkers (LS, n=412), Frequent Low-Cost Moderate Buyer (FC, n=48), Gin-Lovers Mixologists (GM, n=157), Variety Cordial Liquor Purchasers (VC, n=30). This tool's segment toggle uses All Shoppers, Whisky Enthusiasts (WE), Light Spirit Drinkers (LS), Gin-Lovers Mixologists (GM), and Cannabis Purchasers only.
+PURCHASING CLUSTERS (from crosstab, n=990): Whisky Enthusiasts (WE, n=292), Spirited Scotch Connoisseurs (SC, n=51), Light Spirit Drinkers (LS, n=412), Frequent Low-Cost Moderate Buyer (FC, n=48), Gin-Lovers Mixologists (GM, n=157), Variety Cordial Liquor Purchasers (VC, n=30). This tool's segment toggle uses All Shoppers, Whisky Enthusiasts (WE), Light Spirit Drinkers (LS), and Gin-Lovers Mixologists (GM) only.
 
 CLUSTER DEMOGRAPHIC PROFILE (crosstab, n=990):
 - Gender: WE 57.5% male / 42.1% female. LS 44.4% male / 55.3% female. GM 66.2% male / 33.8% female. All shoppers 53.0% male / 46.8% female.
@@ -268,9 +356,9 @@ const CHAPTERS = [
           { value: "44%", label: "Waiting Longer to Restock", delta: "+5 pts vs. Wave 5 (39%→44%)" },
         ],
         narrative:
-          "Ohio liquor shoppers continue to demonstrate remarkable resilience, but their expectations are evolving. Economic pressures are influencing decision-making more than in previous waves: 43% of shoppers now purchase less expensive options because of the economy, up 3 points from 40% in Wave 5, and 44% are waiting longer to restock, up 5 points from 39% in Wave 5. Among those cutting back, the top reasons are a desire to spend less overall (53%), rising alcohol prices (47%), and concern about tariffs or trade issues (19%). At the same time, interest in discovery, new brands, and confidence-building remains strong, reinforcing that value today is defined by more than price alone. Against this backdrop, OHLQ's relationship with shoppers remains exceptionally strong: top-2-box satisfaction climbed to 97%, up 4 points from 93% in Wave 5 and the highest level recorded since tracking began, while 60% now hold a very positive opinion of the brand and trust continues to rise.",
+          "Economic pressure is reshaping how Ohio liquor shoppers buy: 43% are choosing less expensive options and 44% are waiting longer to restock, both up from Wave 5 (40% and 39% respectively). Among those cutting back, 53% cite wanting to spend less overall, 47% cite rising alcohol prices, and 19% cite concern about tariffs or trade issues. Against that backdrop, OHLQ's satisfaction and trust scores have hit all-time highs: top-2-box satisfaction climbed to 97%, up 4 points from Wave 5 and the highest level recorded since tracking began, 60% hold a very positive opinion of the brand, and trust rose 5 points to 83%.",
         takeaway:
-          "Shoppers are resilient but increasingly intentional, and OHLQ's strong brand fundamentals position it well to capture deepening engagement.",
+          "Shoppers are pulling back on spend and frequency, but OHLQ's satisfaction, trust, and brand opinion scores are all at or near tracker highs — the economic pressure is not translating into brand erosion.",
         implication:
           "Lean into value and discovery messaging simultaneously — price-conscious behavior is not a sign of eroding brand love, and OHLQ's satisfaction and trust levels justify a confident, relationship-building content strategy rather than a defensive one.",
       },
@@ -282,6 +370,7 @@ const CHAPTERS = [
     title: "Shopper Profile / Segmentation",
     framing: "Who are today's Ohio liquor shoppers?",
     hasSegments: true,
+    hasChart: "cluster-dist",
     questions: [
       "Which purchasing cluster is most valuable for advocacy?",
       "How does Gin-Lovers Mixologists' engagement compare across attributes?",
@@ -347,9 +436,9 @@ const CHAPTERS = [
           { value: "89.9%", label: "Very Positive Brand Opinion (vs. 78.3%)", delta: "+11.6 pts" },
         ],
         narrative:
-          "Cannabis purchasers make up just over half of respondents (51%, down 2 points from 53% in Wave 5) and are a meaningfully different, higher-value audience. They are more brand-aware, more likely to have ever shopped OHLQ, more likely to shop OHLQ most often (31.8% vs. 18.1%), and hold more positive opinions of the brand than non-purchasers. Cannabis crossover itself is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%) — reinforcing that OHLQ's most engaged clusters are also its most likely cannabis crossover shoppers.",
+          "Cannabis purchasers make up 51% of respondents, down 2 points from Wave 5. On every brand measure they out-perform non-purchasers: brand awareness 66.9% vs. 55.1%, ever shopped OHLQ 57.6% vs. 43.4%, shop OHLQ most often 31.8% vs. 18.1%, and very positive brand opinion 89.9% vs. 78.3%. Cannabis crossover is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%).",
         takeaway:
-          "Cannabis purchasers are a higher-value, higher-engagement audience hiding in plain sight — and this behavior concentrates most heavily in OHLQ's already-most-engaged clusters.",
+          "Cannabis purchasers out-perform non-purchasers on every brand measure tracked, and the behavior concentrates most heavily in the clusters — Whisky Enthusiasts and Gin-Lovers Mixologists — that already drive the most advocacy.",
         implication:
           "Treat cannabis crossover as a targeting asset, not a risk — this audience is already predisposed toward OHLQ and is reachable through the social and Reddit channels where it over-indexes, particularly among Whisky Enthusiasts and Gin-Lovers Mixologists.",
       },
@@ -361,6 +450,7 @@ const CHAPTERS = [
     title: "Category",
     framing: "What are shoppers buying?",
     hasSegments: true,
+    hasChart: "category-wow",
     questions: [
       "Why is American whiskey softening?",
       "Which cluster is driving the gin growth?",
@@ -376,7 +466,7 @@ const CHAPTERS = [
         narrative:
           "Vodka (68%) and tequila (55%) remain the most widely purchased categories and held steady wave over wave. American whiskey softened from 56% to 51% (-5 pts), the largest single-category shift this wave. Irish whiskey dropped from 28% to 24% (-4 pts) and brandy/cognac declined from 25% to 22% (-3 pts) — the three categories for which the Wave 6 report publishes exact wave-over-wave point changes. Gin, scotch, cordials, and RTDs all increased versus Wave 5, though the report does not publish exact point deltas for these upticks. Most notably, non-alcoholic beer, wine, and liquor purchases increased significantly versus Wave 5, reaching 15% of respondents this wave.",
         takeaway:
-          "Vodka and tequila lead and are holding. The softening of American whiskey is a structural signal worth monitoring, driven by price pressure, demographic rotation, and potential cannabis substitution rather than any single cause.",
+          "Vodka and tequila are the two most purchased categories and held steady wave over wave. American whiskey's 5-point drop is the largest single-category shift this wave; the data does not identify a single cause, but 43% of shoppers are buying cheaper options and cannabis crossover is highest in the clusters most concentrated in brown spirits.",
         implication:
           "Lean into the growing tequila and gin segments with cocktail and recipe content, while shifting American whiskey marketing from broad reach to high-value enthusiast targeting.",
       },
@@ -440,6 +530,7 @@ const CHAPTERS = [
     title: "Occasion",
     framing: "When and why are shoppers buying?",
     hasSegments: false,
+    hasChart: "occasions-heatmap",
     questions: [
       "Which categories over-index for gifting?",
       "Where is the biggest untapped conversion opportunity?",
@@ -495,6 +586,7 @@ const CHAPTERS = [
     title: "Attributes / Drivers",
     framing: "What do shoppers value, and how does that connect to revenue?",
     hasSegments: true,
+    hasChart: "attribute-scatter",
     questions: [
       "Which cluster is hardest to satisfy on attributes?",
       "Why did knowledgeable staff performance decline?",
@@ -590,7 +682,7 @@ const CHAPTERS = [
         narrative:
           "Unaided awareness sits at 25% and aided awareness at 60%, both consistent with the past several waves. OHLQ ranks second in aided awareness behind only Kroger, up from fourth at baseline. Name-specific mentions grew from 2% at baseline to 12% today, while generic 'state store' references declined from 19% to 13% — a clear shift from commodity to brand. Four new competitors entered the consideration set for the first time in Wave 6: Total Wine, Spec's, WhiskeySearcher, and Wine Searcher. Logo recall reached 70%, more than double the 35% baseline, but declined 4 points from 74% in Wave 5 — the first decline after five consecutive waves of growth. Logo recognition continues to outpace aided brand awareness (70% vs. 60%). OHLQ locations remain the top source of logo recall at 49%.",
         takeaway:
-          "Awareness has largely matured. The visual identity is stronger than the name alone. The opportunity is no longer reach but depth: converting ambient familiarity into active brand preference.",
+          "Aided awareness has been flat at 60–62% for three consecutive waves and unaided awareness at 22–25% for two waves, suggesting the brand is near its current ceiling with this audience. Logo recall at 70% continues to outpace aided awareness at 60%, meaning the visual mark is more recognizable than the brand name.",
         implication:
           "Shift media strategy from broad awareness-building to contextual relevance at the moments shoppers are deciding, particularly in-store and on search.",
       },
@@ -618,7 +710,7 @@ const CHAPTERS = [
         narrative:
           "OHLQ's top-2-box satisfaction reached 97% this wave, up 4 points from 93% in Wave 5 and the highest level recorded since tracking began, and negative opinions have effectively disappeared. Net Promoter Score declined from 69.6 to 62.3 (-7.3 pts), but this requires context: Wave 5 was fielded immediately following the November 2024 presidential election, a period of measurably elevated consumer confidence across all retailers (Giant Eagle spiked 61.4→70.3, Kroger 48.1→63.3, independents 64.9→79.0). Wave 6 represents a return to baseline conditions, and OHLQ's 62.3 NPS remains 12.7 points above its Wave 1 score of 49.6. Trust rose 5 points, from 78% to 83%, and 60% of shoppers hold a very positive overall opinion, up 21 points since Wave 1. OHLQ.com satisfaction hit an all-time high at 95%.",
         takeaway:
-          "Satisfaction is genuinely strong and still improving. The NPS decline is a measurement artifact of an unusually elevated Wave 5 baseline, not a signal of deteriorating performance.",
+          "Top-2-box satisfaction rose 4 points to 97% and trust rose 5 points to 83% — both tracker highs. NPS declined 7.3 points to 62.3, but Wave 5 NPS rose across every retailer tracked (Giant Eagle +8.9, Kroger +15.2, independents +14.1), suggesting the Wave 5 figure was an outlier driven by post-election consumer sentiment. Wave 6's 62.3 is 12.7 points above Wave 1.",
         implication:
           "The app's engagement frequency pattern is the clearest model for deepening digital loyalty — migrating OHLQ.com visitors toward app adoption is the highest-ROI digital investment available.",
       },
@@ -642,7 +734,7 @@ const CHAPTERS = [
           { value: "65.1%", label: "'Very Satisfied' Rate", delta: "Lowest of any cluster, vs. 70.9% average" },
         ],
         narrative:
-          "Light Spirit Drinkers show comparable top-2-box satisfaction to other clusters (95.8%) but the lowest 'very satisfied' rate (65.1% vs. 70.9% average) and the highest detractor rate (10.0%), producing the lowest NPS of the three profiled clusters at 52.4. This is a segment that is broadly content but rarely enthusiastic.",
+          "Light Spirit Drinkers show comparable top-2-box satisfaction to other clusters (95.8%) but the lowest 'very satisfied' rate (65.1% vs. 70.9% average) and the highest detractor rate (10.0%), producing the lowest NPS of the three profiled clusters at 52.4.",
         takeaway:
           "LS satisfaction is real but shallow — high top-2-box scores mask the lowest conviction and highest detractor rate of any profiled cluster.",
         implication:
@@ -682,6 +774,7 @@ const CHAPTERS = [
     title: "Promotion",
     framing: "Is OHLQ's messaging landing with shoppers?",
     hasSegments: false,
+    hasChart: "promo-comparison",
     questions: [
       "Why did 'Raise a Glass. Responsibly.' recall drop so sharply?",
       "Why does Liquordation outperform Last Call despite lower recall?",
@@ -709,6 +802,7 @@ const CHAPTERS = [
     title: "Emerging Trends",
     framing: "What's newly shaping the shopper landscape?",
     hasSegments: true,
+    hasChart: "cannabis-cluster",
     questions: [
       "Why does Whisky Enthusiasts over-index so heavily on AI tools?",
       "How significant is AI tool usage for liquor research right now?",
@@ -722,9 +816,9 @@ const CHAPTERS = [
           { value: "20.5 pt", label: "OHLQ.com Navigation Gap (Cannabis vs. Non)", delta: "Widest disparity in the dataset" },
         ],
         narrative:
-          "Cannabis purchasers represent just over half of respondents (51%, down 2 points from 53% in Wave 5) and are a meaningfully different, higher-value audience. They are more brand-aware (66.9% vs. 55.1%), more likely to have ever shopped OHLQ (57.6% vs. 43.4%), and more likely to shop OHLQ most often (31.8% vs. 18.1%). They hold more positive opinions of the brand (89.9% vs. 78.3%) and are more engaged across discovery channels including Facebook, Reddit, and X. The gap shows up specifically on OHLQ.com, where cannabis purchasers rate ease of navigation at 79.5% versus 100% among non-purchasers — the widest single disparity in the Wave 6 dataset. Separately, AI tools like ChatGPT already register at 12% for liquor research despite appearing in the survey for the first time this wave.",
+          "Cannabis purchasers (51% of the sample, down 2 points from Wave 5) out-perform non-purchasers on every brand measure: awareness 66.9% vs. 55.1%, ever shopped OHLQ 57.6% vs. 43.4%, shop most often 31.8% vs. 18.1%, very positive opinion 89.9% vs. 78.3%. They also over-index on Facebook, Reddit, and X as information sources. The one exception is OHLQ.com navigation ease, where cannabis purchasers rate it at 79.5% versus 100% among non-purchasers — the largest single gap in the Wave 6 dataset. Separately, AI tools such as ChatGPT registered at 12% for liquor research in their first wave of measurement, on par with influencers and podcasts.",
         takeaway:
-          "Cannabis purchasers are a higher-value, higher-engagement audience hiding in plain sight. The OHLQ.com navigation gap is a targeted, fixable problem standing between this audience and stronger brand loyalty.",
+          "Cannabis purchasers out-perform non-purchasers on every brand measure tracked, but rate OHLQ.com navigation 20.5 points lower — the largest single disparity in the Wave 6 dataset and a specific gap within an otherwise strong relationship.",
         implication:
           "OHLQ.com UX improvement for the cannabis purchaser segment, combined with social and Reddit presence where this group over-indexes, represents one of the highest-ROI near-term marketing investments available.",
       },
@@ -776,7 +870,7 @@ const CHAPTERS = [
         narrative:
           "This is the segment Chapter 9 is centered on: cannabis purchasers are more brand-aware, more likely to have shopped OHLQ, more likely to shop it most often, and hold more positive opinions than non-purchasers — but experience a sharply worse OHLQ.com navigation experience, the widest disparity in the entire dataset.",
         takeaway:
-          "Cannabis purchasers are a higher-value, higher-engagement audience hiding in plain sight, undermined by one fixable digital gap.",
+          "Cannabis purchasers out-perform non-purchasers on every brand metric measured, but the OHLQ.com navigation gap (79.5% vs. 100%) is the single largest disparity in Wave 6.",
         implication:
           "OHLQ.com UX improvement for this segment, paired with social/Reddit presence, is one of the highest-ROI near-term investments available.",
       },
@@ -805,6 +899,231 @@ const CHAPTERS = [
     },
   },
 ];
+
+
+// ── NEW CHART COMPONENTS ──────────────────────────────────────────
+
+function ClusterDistributionChart() {
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Purchasing Clusters: Size vs. Annual Spend</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 8 }}>
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#6B6B6B", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.6 }}>Share of Shopper Base (n=990)</div>
+          <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={CLUSTER_DIST_DATA} layout="vertical" margin={{ top: 0, right: 24, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#DDDDDD" horizontal={false} />
+              <XAxis type="number" domain={[0, 45]} tick={{ fontSize: 10, fill: "#6B6B6B" }} unit="%" />
+              <YAxis type="category" dataKey="cluster" width={155} tick={{ fontSize: 10.5, fill: "#262626" }} />
+              <Tooltip formatter={(v) => [v + "%", "Share"]} contentStyle={{ fontSize: 12, border: "1px solid #DDDDDD" }} />
+              <Bar dataKey="pct" barSize={14}>
+                {CLUSTER_DIST_DATA.map((d, i) => <Cell key={i} fill={d.color} />)}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#6B6B6B", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.6 }}>Avg Annual Spend (excl. Freq. Low-Cost)</div>
+          <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={CLUSTER_DIST_DATA.filter(function(d) { return d.spend; })} layout="vertical" margin={{ top: 0, right: 24, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#DDDDDD" horizontal={false} />
+              <XAxis type="number" domain={[0, 5200]} tick={{ fontSize: 10, fill: "#6B6B6B" }} tickFormatter={function(v) { return "$" + (v/1000).toFixed(1) + "k"; }} />
+              <YAxis type="category" dataKey="cluster" width={155} tick={{ fontSize: 10.5, fill: "#262626" }} />
+              <Tooltip formatter={function(v) { return ["$" + v.toLocaleString(), "Annual spend"]; }} contentStyle={{ fontSize: 12, border: "1px solid #DDDDDD" }} />
+              <Bar dataKey="spend" barSize={14}>
+                {CLUSTER_DIST_DATA.filter(function(d) { return d.spend; }).map(function(d, i) { return <Cell key={i} fill={d.color} />; })}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      <div style={styles.chartCaption}>Source: LTV Cluster Crosstabs, n=990.</div>
+    </div>
+  );
+}
+
+function CategoryWoWChart() {
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Category Purchase Rates: Wave 5 vs. Wave 6 (% purchasing regularly)</div>
+      <ResponsiveContainer width="100%" height={340}>
+        <BarChart data={CATEGORY_WOW_DATA} margin={{ top: 4, right: 16, left: 0, bottom: 48 }} barCategoryGap="25%" barGap={2}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#DDDDDD" vertical={false} />
+          <XAxis dataKey="cat" tick={{ fontSize: 10.5, fill: "#262626" }} interval={0} angle={-35} textAnchor="end" />
+          <YAxis tick={{ fontSize: 11, fill: "#6B6B6B" }} unit="%" domain={[0, 80]} />
+          <Tooltip formatter={function(v, name) { return [v + "%", name === "w5" ? "Wave 5" : "Wave 6"]; }} contentStyle={{ fontSize: 12, border: "1px solid #DDDDDD" }} />
+          <Legend formatter={function(v) { return v === "w5" ? "Wave 5 (Jan '25)" : "Wave 6 (Feb '26)"; }} wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+          <Bar dataKey="w5" fill="#BBBBBB" barSize={14} />
+          <Bar dataKey="w6" fill="#CF343E" barSize={14} />
+        </BarChart>
+      </ResponsiveContainer>
+      <div style={styles.chartCaption}>Source: Wave 6 report (n=500) and Wave 5 report (n=500). Exact W5 figures not published for gin, scotch, cordials, RTDs.</div>
+    </div>
+  );
+}
+
+function OccasionsHeatmap() {
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Purchase Occasions by Category (% selecting each occasion)</div>
+      <div style={{ overflowX: "auto", marginTop: 8 }}>
+        <table style={{ borderCollapse: "collapse", width: "100%", minWidth: 580 }}>
+          <thead>
+            <tr>
+              <th style={{ fontSize: 11, fontWeight: 700, color: "#6B6B6B", padding: "6px 8px", textAlign: "left", borderBottom: "2px solid #DDDDDD" }}>Category</th>
+              {OCCASION_COLS.map(function(c) {
+                return <th key={c.key} style={{ fontSize: 10, fontWeight: 700, color: "#6B6B6B", padding: "6px 5px", textAlign: "center", borderBottom: "2px solid #DDDDDD", whiteSpace: "nowrap" }}>{c.label}</th>;
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {OCCASION_DATA.map(function(row, i) {
+              return (
+                <tr key={i}>
+                  <td style={{ fontSize: 11, fontWeight: 600, color: "#262626", padding: "5px 8px", borderBottom: "1px solid #DDDDDD", whiteSpace: "nowrap" }}>{row.cat}</td>
+                  {OCCASION_COLS.map(function(c) {
+                    return (
+                      <td key={c.key} style={{ fontSize: 11, fontWeight: 700, padding: "5px 5px", textAlign: "center", borderBottom: "1px solid #DDDDDD", background: heatmapCellColor(row[c.key]), color: heatmapTextColor(row[c.key]) }}>
+                        {row[c.key]}%
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div style={styles.chartCaption}>Source: Wave 6 report, Q9 (n=500). Darker red = higher rate.</div>
+    </div>
+  );
+}
+
+function AttributeScatterChart() {
+  const W = 520, H = 300;
+  const PAD = { top: 20, right: 20, bottom: 44, left: 48 };
+  const minV = 44, maxV = 96;
+  const avgImp = Math.round(ATTRIBUTE_SCATTER_DATA.reduce(function(s, d) { return s + d.importance; }, 0) / ATTRIBUTE_SCATTER_DATA.length);
+  const avgPerf = Math.round(ATTRIBUTE_SCATTER_DATA.reduce(function(s, d) { return s + d.performance; }, 0) / ATTRIBUTE_SCATTER_DATA.length);
+  function px(v) { return PAD.left + ((v - minV) / (maxV - minV)) * (W - PAD.left - PAD.right); }
+  function py(v) { return H - PAD.bottom - ((v - minV) / (maxV - minV)) * (H - PAD.top - PAD.bottom); }
+  const ticks = [50, 60, 70, 80, 90];
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Attribute Importance vs. OHLQ Performance</div>
+      <div style={{ fontSize: 12, color: "#6B6B6B", marginBottom: 8, display: "flex", gap: 16, flexWrap: "wrap" }}>
+        <span><span style={{ display: "inline-block", width: 10, height: 10, borderRadius: "50%", background: "#CF343E", marginRight: 5, verticalAlign: "middle" }} />Priority gap</span>
+        <span><span style={{ display: "inline-block", width: 10, height: 10, borderRadius: "50%", background: "#333333", marginRight: 5, verticalAlign: "middle" }} />On track</span>
+      </div>
+      <div style={{ overflowX: "auto" }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", fontFamily: "Arial, sans-serif" }}>
+          {ticks.map(function(t) { return <line key={"gx"+t} x1={px(t)} y1={PAD.top} x2={px(t)} y2={H-PAD.bottom} stroke="#DDDDDD" strokeDasharray="3 3" />; })}
+          {ticks.map(function(t) { return <line key={"gy"+t} x1={PAD.left} y1={py(t)} x2={W-PAD.right} y2={py(t)} stroke="#DDDDDD" strokeDasharray="3 3" />; })}
+          <line x1={PAD.left} y1={H-PAD.bottom} x2={W-PAD.right} y2={H-PAD.bottom} stroke="#DDDDDD" />
+          <line x1={PAD.left} y1={PAD.top} x2={PAD.left} y2={H-PAD.bottom} stroke="#DDDDDD" />
+          {ticks.map(function(t) { return <text key={"tx"+t} x={px(t)} y={H-PAD.bottom+14} textAnchor="middle" fontSize={10} fill="#6B6B6B">{t}%</text>; })}
+          {ticks.map(function(t) { return <text key={"ty"+t} x={PAD.left-6} y={py(t)+4} textAnchor="end" fontSize={10} fill="#6B6B6B">{t}%</text>; })}
+          <text x={PAD.left+(W-PAD.left-PAD.right)/2} y={H-4} textAnchor="middle" fontSize={11} fill="#6B6B6B">Stated Importance (%)</text>
+          <text x={12} y={PAD.top+(H-PAD.top-PAD.bottom)/2} textAnchor="middle" fontSize={11} fill="#6B6B6B" transform={"rotate(-90,12," + (PAD.top+(H-PAD.top-PAD.bottom)/2) + ")"}>OHLQ Performance (%)</text>
+          <line x1={px(avgImp)} y1={PAD.top} x2={px(avgImp)} y2={H-PAD.bottom} stroke="#AAAAAA" strokeDasharray="5 3" />
+          <line x1={PAD.left} y1={py(avgPerf)} x2={W-PAD.right} y2={py(avgPerf)} stroke="#AAAAAA" strokeDasharray="5 3" />
+          <text x={px(avgImp)+3} y={PAD.top+10} fontSize={9} fill="#6B6B6B">avg imp.</text>
+          <text x={W-PAD.right-2} y={py(avgPerf)-3} fontSize={9} fill="#6B6B6B" textAnchor="end">avg perf.</text>
+          <text x={px(avgImp)+4} y={H-PAD.bottom-8} fontSize={9} fill="#CF343E" fontWeight="700">priority gaps below this line</text>
+          {ATTRIBUTE_SCATTER_DATA.map(function(d, i) {
+            var isPriority = d.importance >= avgImp && d.performance < avgPerf;
+            return (
+              <g key={i}>
+                <circle cx={px(d.importance)} cy={py(d.performance)} r={6} fill={isPriority ? "#CF343E" : "#333333"} opacity={0.8} />
+                <title>{d.name + ": Importance " + d.importance + "%, Performance " + d.performance + "%"}</title>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+      <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+        {ATTRIBUTE_SCATTER_DATA.map(function(d, i) {
+          var isPriority = d.importance >= avgImp && d.performance < avgPerf;
+          return (
+            <div key={i} style={{ fontSize: 10.5, color: isPriority ? "#CF343E" : "#6B6B6B", fontWeight: isPriority ? 700 : 400, whiteSpace: "nowrap" }}>
+              <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: isPriority ? "#CF343E" : "#333333", marginRight: 4, verticalAlign: "middle" }} />
+              {d.name}
+            </div>
+          );
+        })}
+      </div>
+      <div style={styles.chartCaption}>Source: Wave 6. Importance Q22 (n=500), Performance Q25 (n=302). Dashed lines = averages. Hover dots for attribute name. Red = priority gaps.</div>
+    </div>
+  );
+}
+
+function PromotionComparisonChart() {
+  var promos = [
+    { name: "Last Call", recall: 20, correct: 15, note: "Most who recall it interpret it as bar closing time, not a discontinued-product event.", color: "#A3A3A3" },
+    { name: "Liquordation", recall: 11, correct: 83, note: "83% of those who recall it correctly identify it as a discount or sale signal.", color: "#CF343E" },
+  ];
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Last Call vs. Liquordation: Recall and Correct Interpretation</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 12 }}>
+        {promos.map(function(p) {
+          return (
+            <div key={p.name} style={{ border: "1px solid #DDDDDD", borderTop: "3px solid " + p.color, borderRadius: 2, padding: "16px 18px" }}>
+              <div style={{ fontSize: 15, fontWeight: 800, color: "#333333", marginBottom: 14 }}>{p.name}</div>
+              <div style={{ display: "flex", gap: 12, marginBottom: 14 }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: p.color }}>{p.recall}%</div>
+                  <div style={{ fontSize: 11, color: "#6B6B6B", marginTop: 2 }}>Recall (all shoppers)</div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: p.color }}>{p.correct}%</div>
+                  <div style={{ fontSize: 11, color: "#6B6B6B", marginTop: 2 }}>Correct interpretation</div>
+                </div>
+              </div>
+              <div style={{ fontSize: 12, color: "#262626", lineHeight: 1.5, borderTop: "1px solid #DDDDDD", paddingTop: 10 }}>{p.note}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 8 }}>Correct Interpretation Rate (% of those who recall)</div>
+        <ResponsiveContainer width="100%" height={80}>
+          <BarChart data={[{ name: "Last Call", value: 15 }, { name: "Liquordation", value: 83 }]} layout="vertical" margin={{ top: 0, right: 60, left: 0, bottom: 0 }}>
+            <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 10, fill: "#6B6B6B" }} unit="%" />
+            <YAxis type="category" dataKey="name" width={100} tick={{ fontSize: 11, fill: "#262626" }} />
+            <Tooltip formatter={function(v) { return [v + "%", "Correct interpretation"]; }} contentStyle={{ fontSize: 12, border: "1px solid #DDDDDD" }} />
+            <Bar dataKey="value" barSize={18}>
+              <Cell fill="#A3A3A3" />
+              <Cell fill="#CF343E" />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      <div style={styles.chartCaption}>Source: Wave 6 report, Q38/Q39 (n=500). Correct interpretation base: Last Call n=100, Liquordation n=54.</div>
+    </div>
+  );
+}
+
+function CannabisClusterChart() {
+  return (
+    <div style={styles.chartCard} className="ohlq-chart-card">
+      <div style={styles.chartTitle}>Cannabis Purchase Rate by Cluster</div>
+      <div style={{ fontSize: 12, color: "#6B6B6B", marginBottom: 8 }}>Dashed line = all-shopper cannabis average (47.4%)</div>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={CANNABIS_CROSSOVER_DATA} margin={{ top: 8, right: 48, left: 0, bottom: 8 }} barCategoryGap="30%" barGap={2}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#DDDDDD" vertical={false} />
+          <XAxis dataKey="cluster" tick={{ fontSize: 10.5, fill: "#262626" }} />
+          <YAxis tick={{ fontSize: 11, fill: "#6B6B6B" }} unit="%" domain={[0, 65]} />
+          <Tooltip formatter={function(v, n) { return [v + "%", n === "cannabis" ? "Cannabis/Marijuana" : "THC Beverages"]; }} contentStyle={{ fontSize: 12, border: "1px solid #DDDDDD" }} />
+          <Legend formatter={function(v) { return v === "cannabis" ? "Cannabis/Marijuana" : "THC Beverages"; }} wrapperStyle={{ fontSize: 12 }} />
+          <Bar dataKey="cannabis" fill="#333333" barSize={20} />
+          <Bar dataKey="thc" fill="#A3A3A3" barSize={20} />
+        </BarChart>
+      </ResponsiveContainer>
+      <div style={styles.chartCaption}>Source: LTV Cluster Crosstabs (n=990) and Wave 6 cannabis appendix (n=500).</div>
+    </div>
+  );
+}
 
 /* ---------------------------------------------------------------
    CHART COMPONENTS
@@ -1681,6 +2000,12 @@ export default function OHLQExplorer() {
             {chapter.hasChart === "info-sources" && <InfoSourcesChart />}
             {chapter.hasChart === "awareness-trend" && <WaveTrendChart type="awareness-trend" />}
             {chapter.hasChart === "satisfaction-trend" && <WaveTrendChart type="satisfaction-trend" />}
+            {chapter.hasChart === "cluster-dist" && segment === "all" && <ClusterDistributionChart />}
+            {chapter.hasChart === "category-wow" && segment === "all" && <CategoryWoWChart />}
+            {chapter.hasChart === "occasions-heatmap" && <OccasionsHeatmap />}
+            {chapter.hasChart === "attribute-scatter" && segment === "all" && <AttributeScatterChart />}
+            {chapter.hasChart === "promo-comparison" && <PromotionComparisonChart />}
+            {chapter.hasChart === "cannabis-cluster" && segment === "all" && <CannabisClusterChart />}
 
             <div style={styles.takeawayBox}>
               <div style={styles.takeawayLabel}>Key Takeaway</div>
