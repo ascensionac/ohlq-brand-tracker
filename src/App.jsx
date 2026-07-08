@@ -244,6 +244,61 @@ const CLUSTER_TABLE = {
 };
 
 /* ---------------------------------------------------------------
+   APPENDIX: Security & Trust reference content
+   ------------------------------------------------------------- */
+const SECURITY_TOOLS = [
+  {
+    initials: "GH",
+    name: "GitHub",
+    role: "Version-Controlled Repository",
+    desc: "Stores the underlying code for the tracker. Every change is date-stamped, saved, and fully reversible.",
+  },
+  {
+    initials: "NF",
+    name: "Netlify",
+    role: "Hosting & Secure Server-Side Layer",
+    desc: "Publishes the tracker as a live, password-protected website and manages the secure server-side connection used by the Q&A feature.",
+  },
+  {
+    initials: "C",
+    name: "Claude (Anthropic)",
+    role: "Q&A Assistant",
+    desc: "Powers the \u201cAsk a question\u201d feature in each chapter. It answers exclusively from the Wave 6 data provided and does not draw on outside information.",
+  },
+];
+
+const SECURITY_SAFEGUARDS = [
+  {
+    title: "Password protection",
+    desc: "Netlify restricts access to the site with a password. Only individuals who have been given that password can view the tracker at all.",
+  },
+  {
+    title: "No entry points",
+    desc: "The site is read-only. Visitors can navigate, filter, and ask questions, but there are no login fields, accounts, or forms that collect personal data.",
+  },
+  {
+    title: "The AI credential is never exposed",
+    desc: "The key that authorizes the Q&A feature is stored as a secure, server-side setting in Netlify. It is applied only on Netlify\u2019s server and is never visible to a visitor\u2019s browser.",
+  },
+  {
+    title: "Every change is logged",
+    desc: "GitHub keeps a complete, time-stamped record of all changes to the site, so any prior version can be restored quickly if ever needed.",
+  },
+  {
+    title: "Encrypted connection",
+    desc: "The connection between a visitor\u2019s browser and the site is encrypted (HTTPS), the same standard used for online banking, managed automatically by Netlify.",
+  },
+];
+
+const SECURITY_FLOW = [
+  { step: 1, text: "A user types a question into the tracker (e.g., \u201cHow did logo recall change since last wave?\u201d)." },
+  { step: 2, text: "The browser sends the question to Netlify\u2019s password-protected, server-side function \u2014 never directly to Claude, and never with the credential attached." },
+  { step: 3, text: "Netlify\u2019s function attaches the secure credential on its own server and passes the question, along with the Wave 6 data, to Claude." },
+  { step: 4, text: "Claude generates a plain-language answer grounded exclusively in the Wave 6 data provided." },
+  { step: 5, text: "The answer travels back through Netlify to the browser and appears within the chapter being viewed." },
+];
+
+/* ---------------------------------------------------------------
    GROUNDING CONTEXT for the Q&A assistant (Wave 6 source data)
    ------------------------------------------------------------- */
 const GROUNDING_CONTEXT = `
@@ -710,7 +765,7 @@ const CHAPTERS = [
         narrative:
           "OHLQ's top-2-box satisfaction reached 97% this wave, up 4 points from 93% in Wave 5 and the highest level recorded since tracking began, and negative opinions have effectively disappeared. Net Promoter Score declined from 69.6 to 62.3 (-7.3 pts), but this requires context: Wave 5 was fielded immediately following the November 2024 presidential election, a period of measurably elevated consumer confidence across all retailers (Giant Eagle spiked 61.4→70.3, Kroger 48.1→63.3, independents 64.9→79.0). Wave 6 represents a return to baseline conditions, and OHLQ's 62.3 NPS remains 12.7 points above its Wave 1 score of 49.6. Trust rose 5 points, from 78% to 83%, and 60% of shoppers hold a very positive overall opinion, up 21 points since Wave 1. OHLQ.com satisfaction hit an all-time high at 95%.",
         takeaway:
-          "Top-2-box satisfaction rose 4 points to 97% and trust rose 5 points to 83% — both tracker highs. NPS declined 7.3 points to 62.3, but Wave 5 NPS rose across every retailer tracked (Giant Eagle +8.9, Kroger +15.2, independents +14.1), suggesting the Wave 5 figure was an outlier driven by post-election consumer sentiment. Wave 6's 62.3 is 12.7 points above Wave 1.",
+          "Top-2-box satisfaction rose 4 points to 97% and trust rose 5 points to 83% — both tracker highs. NPS declined 7.3 points to 62.3, but the drop isn't isolated to OHLQ: Giant Eagle and Kroger both saw NPS rise in Wave 5 and fall back in Wave 6 (Giant Eagle +8.9 then -17.8, Kroger +15.2 then -12.0). That pattern is consistent with a category-wide Wave 5 spike rather than an OHLQ-specific decline — the post-election timing is one plausible factor for the jump in Wave 5 results, and now we are observing a return to normalcy in Wave 6.",
         implication:
           "The app's engagement frequency pattern is the clearest model for deepening digital loyalty — migrating OHLQ.com visitors toward app adoption is the highest-ROI digital investment available.",
       },
@@ -893,6 +948,28 @@ const CHAPTERS = [
         stats: [],
         narrative:
           "The table below is reproduced from the client's cluster reference deck for quick lookup alongside this tool. It summarizes cluster size, annual spend, top spirit categories, purchase frequency, and other-category crossover for five of the six purchasing clusters used throughout this tracker (Frequent Low-Cost Moderate Buyers, roughly 5% of shoppers, is tracked in the full crosstab but not shown in this particular summary).",
+        takeaway: "",
+        implication: "",
+      },
+    },
+  },
+  {
+    id: "security",
+    number: "App.",
+    title: "Appendix: Security & Trust",
+    framing: "How the interactive tracker is built and secured",
+    hasSegments: false,
+    isSecurity: true,
+    questions: [
+      "How is the AI credential protected?",
+      "What happens if I ask a question in the tracker?",
+      "Is any personal data collected from visitors?",
+    ],
+    content: {
+      all: {
+        stats: [],
+        narrative:
+          "To make the Wave 6 findings easier to explore, an interactive, click-through version of this report was built for the web. It allows users to browse the findings by chapter, filter by shopper segment, and ask plain-language questions about the data. The tools below support that experience, and access to the site itself is password protected.",
         takeaway: "",
         implication: "",
       },
@@ -1219,6 +1296,62 @@ function sigColor(sig) {
   if (sig === "higher") return "#2A5CAA";
   if (sig === "lower") return ACCENT;
   return TEXT;
+}
+
+function SecurityInfoSection() {
+  return (
+    <>
+      <div style={styles.toolGrid} className="ohlq-tool-grid">
+        {SECURITY_TOOLS.map(function (t) {
+          return (
+            <div style={styles.toolCard} key={t.name}>
+              <div style={styles.toolBadge}>{t.initials}</div>
+              <div style={styles.toolName}>{t.name}</div>
+              <div style={styles.toolRole}>{t.role}</div>
+              <div style={styles.toolDesc}>{t.desc}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div style={styles.subheading}>Why This Setup Is Secure</div>
+      <p style={styles.narrative} className="ohlq-narrative">
+        Security for the interactive tracker rests on five safeguards, each handled by an established, industry-standard tool.
+      </p>
+      <div style={styles.safeguardList}>
+        {SECURITY_SAFEGUARDS.map(function (s, i) {
+          return (
+            <div style={styles.safeguardRow} key={i}>
+              <div style={styles.safeguardCheck}>&#10003;</div>
+              <div style={styles.safeguardText}>
+                <div style={styles.safeguardTitle}>{s.title}</div>
+                <div style={styles.safeguardDesc}>{s.desc}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div style={styles.subheading}>How a Question Travels Through the System</div>
+      <div style={styles.flowList}>
+        {SECURITY_FLOW.map(function (f) {
+          return (
+            <div style={styles.flowRow} key={f.step}>
+              <div style={styles.flowNumber}>{f.step}</div>
+              <div style={styles.flowText}>{f.text}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div style={styles.implicationBox}>
+        <div style={styles.implicationLabel}>The Bottom Line</div>
+        <p style={styles.implicationText}>
+          The tracker is a password-protected, read-only window into the Wave 6 data. There is no public entry point, no data collection, and no way for a visitor to reach the AI credential directly. Every component — the code, the hosting, and the assistant — is a well-established, industry-standard tool.
+        </p>
+      </div>
+    </>
+  );
 }
 
 function ClusterReferenceTable() {
@@ -1687,6 +1820,126 @@ const styles = {
     marginBottom: 4,
     lineHeight: 1.4,
   },
+  subheading: {
+    fontSize: 20,
+    fontWeight: 700,
+    color: CHARCOAL,
+    marginTop: 8,
+    marginBottom: 14,
+  },
+  toolGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: 16,
+    marginBottom: 32,
+  },
+  toolCard: {
+    border: `1px solid ${BORDER}`,
+    borderRadius: 2,
+    padding: "20px 18px",
+    background: "#FFFFFF",
+  },
+  toolBadge: {
+    width: 40,
+    height: 40,
+    borderRadius: "50%",
+    background: CHARCOAL,
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: 800,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+  },
+  toolName: {
+    fontSize: 15.5,
+    fontWeight: 800,
+    color: CHARCOAL,
+    marginBottom: 4,
+  },
+  toolRole: {
+    fontSize: 11,
+    fontWeight: 700,
+    color: ACCENT,
+    textTransform: "uppercase",
+    letterSpacing: 0.6,
+    marginBottom: 10,
+  },
+  toolDesc: {
+    fontSize: 13,
+    lineHeight: 1.55,
+    color: TEXT,
+  },
+  safeguardList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    marginBottom: 36,
+  },
+  safeguardRow: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: 14,
+  },
+  safeguardCheck: {
+    width: 24,
+    height: 24,
+    borderRadius: "50%",
+    background: ACCENT_TINT,
+    color: ACCENT,
+    fontSize: 12,
+    fontWeight: 800,
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 2,
+  },
+  safeguardText: {
+    flex: 1,
+  },
+  safeguardTitle: {
+    fontSize: 14.5,
+    fontWeight: 700,
+    color: CHARCOAL,
+    marginBottom: 3,
+  },
+  safeguardDesc: {
+    fontSize: 13,
+    lineHeight: 1.55,
+    color: TEXT,
+  },
+  flowList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 18,
+    marginBottom: 36,
+  },
+  flowRow: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: 14,
+  },
+  flowNumber: {
+    width: 26,
+    height: 26,
+    borderRadius: "50%",
+    background: ACCENT,
+    color: "#FFFFFF",
+    fontSize: 12.5,
+    fontWeight: 800,
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  flowText: {
+    fontSize: 14,
+    lineHeight: 1.55,
+    color: TEXT,
+    paddingTop: 2,
+  },
 };
 
 /* ---------------------------------------------------------------
@@ -1788,6 +2041,11 @@ const RESPONSIVE_CSS = `
       font-size: 24px !important;
     }
     .ohlq-stat-grid {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+      margin-bottom: 24px !important;
+    }
+    .ohlq-tool-grid {
       grid-template-columns: 1fr !important;
       gap: 12px !important;
       margin-bottom: 24px !important;
@@ -1962,7 +2220,7 @@ export default function OHLQExplorer() {
         <div style={styles.chapterEyebrow}>
           {chapter.number === "Intro"
             ? "Executive Summary"
-            : chapter.isAppendix
+            : chapter.isAppendix || chapter.isSecurity
             ? "Appendix"
             : `Chapter ${chapter.number}`}
         </div>
@@ -1983,6 +2241,11 @@ export default function OHLQExplorer() {
           <>
             <p style={styles.narrative} className="ohlq-narrative">{content.narrative}</p>
             <ClusterReferenceTable />
+          </>
+        ) : chapter.isSecurity ? (
+          <>
+            <p style={styles.narrative} className="ohlq-narrative">{content.narrative}</p>
+            <SecurityInfoSection />
           </>
         ) : (
           <>
