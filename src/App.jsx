@@ -395,6 +395,7 @@ const CHAPTERS = [
   {
     id: "intro",
     number: "Intro",
+    group: null,
     title: "State of the Shopper",
     framing: "What changed since last year?",
     hasSegments: false,
@@ -410,314 +411,25 @@ const CHAPTERS = [
           { value: "43%", label: "Buying Less Expensive Due to Economy", delta: "+3 pts vs. Wave 5 (40%→43%)" },
           { value: "44%", label: "Waiting Longer to Restock", delta: "+5 pts vs. Wave 5 (39%→44%)" },
         ],
-        narrative:
-          "Economic pressure is reshaping how Ohio liquor shoppers buy: 43% are choosing less expensive options and 44% are waiting longer to restock, both up from Wave 5 (40% and 39% respectively). Among those cutting back, 53% cite wanting to spend less overall, 47% cite rising alcohol prices, and 19% cite concern about tariffs or trade issues. Against that backdrop, OHLQ's satisfaction and trust scores have hit all-time highs: top-2-box satisfaction climbed to 97%, up 4 points from Wave 5 and the highest level recorded since tracking began, 60% hold a very positive opinion of the brand, and trust rose 5 points to 83%.",
         takeaway:
-          "Shoppers are pulling back on spend and frequency, but OHLQ's satisfaction, trust, and brand opinion scores are all at or near tracker highs — the economic pressure is not translating into brand erosion.",
+          "OHLQ has won shoppers' trust — satisfaction, trust, and brand opinion are all at or near tracker highs even as budgets tighten. The next chapter for the brand is converting that trust into loyalty, conversion, and basket growth.",
+        bullets: [
+          "43% of shoppers now choose less expensive options and 44% are waiting longer to restock — both up from Wave 5 (40% / 39%).",
+          "Among those cutting back: 53% want to spend less overall, 47% cite rising alcohol prices, 50% are simply drinking less often, and 32% report decreased socializing — suggesting some of the pullback is lifestyle-driven, not purely economic.",
+          "OHLQ's satisfaction (97%, +4 pts), trust (83%, +5 pts), and brand opinion (60% very positive) all sit at or near tracker highs.",
+          "Wave 6 largely continues Wave 5's trajectory — most core metrics are directionally stable. The exceptions (NPS, logo recall, and 'Raise a Glass' recall) are specific, called-out moves rather than a broad shift, and are addressed chapter by chapter below.",
+        ],
         implication:
-          "Lean into value and discovery messaging simultaneously — price-conscious behavior is not a sign of eroding brand love, and OHLQ's satisfaction and trust levels justify a confident, relationship-building content strategy rather than a defensive one.",
+          "In an uncertain economy, focus on building shopper confidence: help budget-conscious shoppers find value, move through the store easily, and discover new products right at the shelf. Confidence is what drives basket-building — a critical lever if traffic softens.",
       },
     },
   },
-  {
-    id: "ch1",
-    number: "01",
-    title: "Shopper Profile / Segmentation",
-    framing: "Who are today's Ohio liquor shoppers?",
-    hasSegments: true,
-    hasChart: "cluster-dist",
-    questions: [
-      "Which purchasing cluster is most valuable for advocacy?",
-      "How does Gin-Lovers Mixologists' engagement compare across attributes?",
-      "What does the cannabis crossover mean for targeting?",
-    ],
-    content: {
-      all: {
-        stats: [
-          { value: "51%", label: "Also Purchased Cannabis (Past 6 Mo.)", delta: "-2 pts vs. Wave 5 (53%→51%)" },
-          { value: "412", label: "Light Spirit Drinkers — Largest Cluster", delta: "42% of the n=990 cluster base" },
-          { value: "6", label: "Distinct Purchasing Clusters", delta: "Same taxonomy since Wave 1" },
-        ],
-        narrative:
-          "The Wave 6 shopper base can be understood through purchasing clusters built from actual category and spending behavior. Light Spirit Drinkers are the largest cluster (n=412) and skew older — 33.9% are 55 or older — driving volume in vodka, RTDs, and lower-cost spirits, but under-indexing on nearly every category relative to the average shopper. Whisky Enthusiasts (n=292) are concentrated in American whiskey (64.4%), Irish whiskey (39.0%), and Canadian whisky (48.3%), skew male (57.5%), and are OHLQ's strongest advocates by NPS. Gin-Lovers Mixologists (n=157) skew young (61.8% are 21-44) and male (66.2%), and don't just over-index on gin (66.2% vs. 19.8% average) — they rate nearly every category and attribute higher than the average shopper, making them OHLQ's most broadly engaged cluster. Cannabis crossover fell 2 points versus Wave 5 (53%→51%) but remains highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%).",
-        takeaway:
-          "The shopper base is not one audience. Whisky Enthusiasts and Gin-Lovers Mixologists — the clusters most engaged across categories, attributes, and digital channels — are also OHLQ's strongest advocates, while Light Spirit Drinkers anchor volume without driving advocacy.",
-        implication:
-          "Tiered messaging that serves Light Spirit Drinkers with convenience and value cues, while serving Whisky Enthusiasts and Gin-Lovers Mixologists with discovery, education, and exclusive access, will be more effective than a single mass-market approach.",
-      },
-      we: {
-        stats: [
-          { value: "292", label: "Cluster Size (of n=990 Base)", delta: "Concentrated in American/Irish whiskey" },
-          { value: "64.4%", label: "American Whiskey Purchase Rate", delta: "vs. 52.3% average" },
-          { value: "74.8", label: "NPS for OHLQ", delta: "vs. 62.5 average — highest of any cluster" },
-        ],
-        narrative:
-          "Whisky Enthusiasts are concentrated in American whiskey (64.4% vs. 52.3% average), Irish whiskey (39.0% vs. 24.6%), and Canadian whisky (48.3% vs. 33.5%), and skew male (57.5%) and 35-44 (32.9%). This cluster is OHLQ's clearest advocacy engine: NPS of 74.8 versus 62.5 for the average shopper, driven by a 79.2% promoter rate and just a 4.4% detractor rate. WE also shows the highest trust score of any cluster (88.9% top-2-box) and the highest AI-tool adoption for liquor research (19.9% vs. 13.0% average).",
-        takeaway:
-          "WE is OHLQ's highest-value advocacy cluster by a wide margin — the highest NPS, the highest trust score, and among the most digitally engaged.",
-        implication:
-          "Prioritize tasting events, enthusiast education content, and early access to limited whiskey releases for this cluster — it converts engagement into advocacy more efficiently than any other segment.",
-      },
-      ls: {
-        stats: [
-          { value: "412", label: "Cluster Size — Largest of the Six", delta: "42% of the n=990 base" },
-          { value: "33.9%", label: "Aged 55+", delta: "Oldest cluster in the study" },
-          { value: "52.4", label: "NPS for OHLQ", delta: "vs. 62.5 average — lowest of the three profiled clusters" },
-        ],
-        narrative:
-          "Light Spirit Drinkers are the largest cluster by a wide margin and skew older — 33.9% are 55 or older, the highest share of any cluster. LS under-indexes on nearly every category (e.g., American whiskey 45.9% vs. 52.3% average, gin just 4.9% vs. 19.8%) and on discovery-oriented attributes like helpful displays (63.1% importance vs. 71.2% average) and knowledgeable staff (64.4% vs. 71.4%). Satisfaction remains high (95.8% top-2-box) but NPS is the lowest of the three profiled clusters at 52.4, driven by a lower promoter rate (62.4%) and the highest detractor rate (10.0%).",
-        takeaway:
-          "LS drives volume, not advocacy. This cluster is broadly satisfied but far less likely than WE or GM to actively recommend OHLQ.",
-        implication:
-          "Focus messaging on convenience, reliability, and value for this segment rather than discovery-oriented campaigns, which land far better with Whisky Enthusiasts and Gin-Lovers Mixologists.",
-      },
-      gm: {
-        stats: [
-          { value: "157", label: "Cluster Size (of n=990 Base)", delta: "Skews young (61.8% aged 21-44) and male (66.2%)" },
-          { value: "66.2%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — by far the largest category skew in the study" },
-          { value: "95.6%", label: "Wide Assortment — Stated Importance", delta: "Highest of any cluster, vs. 84.2% average" },
-        ],
-        narrative:
-          "Gin-Lovers Mixologists don't just over-index on gin (66.2% vs. 19.8% average) — they rate nearly every category and attribute above average: vodka 77.7%, tequila 52.2%, rum 53.5%, brandy/cognac 35.7%, wide assortment importance 95.6%, knowledgeable staff importance 85.3%, and OHLQ.com/social engagement well above the norm (Facebook 52.9%, YouTube 52.9%). This makes GM OHLQ's most broadly engaged cluster, not just a mixology niche.",
-        takeaway:
-          "GM is a high-engagement, high-expectation cluster across the board — the segment most likely to notice and reward (or penalize) assortment, staff knowledge, and display quality.",
-        implication:
-          "Invest in cocktail recipe content, mixology education, and cross-merchandising with adjacent spirits — but also ensure in-store execution (assortment, displays, staff knowledge) is strongest where GM shoppers concentrate, since this cluster's expectations are the highest in the study.",
-      },
-      cannabis: {
-        stats: [
-          { value: "66.9%", label: "Brand Awareness (vs. 55.1% Non-Purchasers)", delta: "+11.8 pts" },
-          { value: "57.6%", label: "Ever Shopped OHLQ (vs. 43.4%)", delta: "+14.2 pts" },
-          { value: "89.9%", label: "Very Positive Brand Opinion (vs. 78.3%)", delta: "+11.6 pts" },
-        ],
-        narrative:
-          "Cannabis purchasers make up 51% of respondents, down 2 points from Wave 5. On every brand measure they out-perform non-purchasers: brand awareness 66.9% vs. 55.1%, ever shopped OHLQ 57.6% vs. 43.4%, shop OHLQ most often 31.8% vs. 18.1%, and very positive brand opinion 89.9% vs. 78.3%. Cannabis crossover is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%).",
-        takeaway:
-          "Cannabis purchasers out-perform non-purchasers on every brand measure tracked, and the behavior concentrates most heavily in the clusters — Whisky Enthusiasts and Gin-Lovers Mixologists — that already drive the most advocacy.",
-        implication:
-          "Treat cannabis crossover as a targeting asset, not a risk — this audience is already predisposed toward OHLQ and is reachable through the social and Reddit channels where it over-indexes, particularly among Whisky Enthusiasts and Gin-Lovers Mixologists.",
-      },
-    },
-  },
-  {
-    id: "ch2",
-    number: "02",
-    title: "Category",
-    framing: "What are shoppers buying?",
-    hasSegments: true,
-    hasChart: "category-wow",
-    questions: [
-      "Why is American whiskey softening?",
-      "Which cluster is driving the gin growth?",
-      "Is cannabis substitution really behind the whiskey decline?",
-    ],
-    content: {
-      all: {
-        stats: [
-          { value: "68%", label: "Vodka Purchase Rate", delta: "Steady vs. Wave 5" },
-          { value: "51%", label: "American Whiskey Purchase Rate", delta: "-5 pts vs. Wave 5 (56%→51%)" },
-          { value: "15%", label: "Non-Alcoholic Beer/Wine/Liquor Purchasers", delta: "Up significantly vs. Wave 5" },
-        ],
-        narrative:
-          "Vodka (68%) and tequila (55%) remain the most widely purchased categories and held steady wave over wave. American whiskey softened from 56% to 51% (-5 pts), the largest single-category shift this wave. Irish whiskey dropped from 28% to 24% (-4 pts) and brandy/cognac declined from 25% to 22% (-3 pts) — the three categories for which the Wave 6 report publishes exact wave-over-wave point changes. Gin, scotch, cordials, and RTDs all increased versus Wave 5, though the report does not publish exact point deltas for these upticks. Most notably, non-alcoholic beer, wine, and liquor purchases increased significantly versus Wave 5, reaching 15% of respondents this wave.",
-        takeaway:
-          "Vodka and tequila are the two most purchased categories and held steady wave over wave. American whiskey's 5-point drop is the largest single-category shift this wave; the data does not identify a single cause, but 43% of shoppers are buying cheaper options and cannabis crossover is highest in the clusters most concentrated in brown spirits.",
-        implication:
-          "Lean into the growing tequila and gin segments with cocktail and recipe content, while shifting American whiskey marketing from broad reach to high-value enthusiast targeting.",
-      },
-      we: {
-        stats: [
-          { value: "64.4%", label: "American Whiskey Purchase Rate", delta: "vs. 52.3% average — highest of any cluster" },
-          { value: "39.0%", label: "Irish Whiskey Purchase Rate", delta: "vs. 24.6% average — highest of any cluster" },
-          { value: "48.3%", label: "Canadian Whisky Purchase Rate", delta: "vs. 33.5% average — highest of any cluster" },
-        ],
-        narrative:
-          "Whisky Enthusiasts are concentrated in exactly the categories showing wave-over-wave softening in the published report — American whiskey (-5 pts) and Irish whiskey (-4 pts) — plus Canadian whisky, which also declined though the report does not publish an exact point figure for it. Because this cluster over-indexes so heavily on brown spirits (64.4%, 39.0%, and 48.3% respectively, all the highest of any cluster), the whiskey softening trend sits squarely inside OHLQ's highest-NPS, most valuable cluster's core category.",
-        takeaway:
-          "The whiskey softening trend is concentrated within OHLQ's most valuable cluster's own core category — a retention issue for the segment that matters most, not just a category-mix shift.",
-        implication:
-          "Defend WE with premium and limited whiskey releases while actively expanding credible adjacent categories — WE also shows meaningfully above-average scotch purchase (25.0% vs. 16.2%) — to capture this cluster's exploration spend.",
-      },
-      ls: {
-        stats: [
-          { value: "56.1%", label: "Vodka Purchase Rate", delta: "vs. 66.8% average — still the largest single category for LS" },
-          { value: "20.1%", label: "RTD Purchase Rate", delta: "Below average (28.6%), but LS's large base still anchors volume" },
-          { value: "4.9%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — lowest of the three profiled clusters" },
-        ],
-        narrative:
-          "Light Spirit Drinkers under-index on nearly every individual category — vodka (56.1% vs. 66.8%), gin (4.9% vs. 19.8%), and RTDs (20.1% vs. 28.6%) are all below the shopper-wide average. LS is the least exposed of any profiled cluster to the American whiskey softening trend (45.9% purchase rate vs. 52.3% average), simply because whiskey was never central to this cluster's mix — its scale, not its category intensity, is what makes it OHLQ's volume anchor.",
-        takeaway:
-          "LS's size, not its category engagement, is what matters for OHLQ's overall numbers — this cluster is not driving (or exposed to) the category shifts seen elsewhere in the data.",
-        implication:
-          "Category-mix messaging (whiskey rebalancing, gin growth, RTD innovation) will land better with Whisky Enthusiasts and Gin-Lovers Mixologists than with this larger but lower-intensity cluster.",
-      },
-      gm: {
-        stats: [
-          { value: "66.2%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — the single largest category skew in the study" },
-          { value: "77.7%", label: "Vodka Purchase Rate", delta: "Highest of any cluster, vs. 66.8% average" },
-          { value: "53.5%", label: "Rum Purchase Rate", delta: "vs. 37.0% average" },
-        ],
-        narrative:
-          "Gin-Lovers Mixologists are the clear driver of gin's uptick this wave, purchasing gin at more than three times the shopper-wide rate (66.2% vs. 19.8%). This cluster also leads on vodka (77.7%) and shows above-average purchase of rum, tequila, brandy/cognac, and scotch — a broadly high-engagement category profile rather than a single-category niche.",
-        takeaway:
-          "Category growth in gin this wave is being driven almost entirely by this cluster's mixology-oriented purchase behavior, and their engagement extends well beyond gin alone.",
-        implication:
-          "Cross-merchandise gin with vodka, rum, and tequila under mixology and cocktail-recipe content aimed specifically at GM shoppers, who are already buying broadly across the spirits aisle.",
-      },
-      cannabis: {
-        stats: [
-          { value: "51%", label: "Overlap With Total OHLQ Shopper Base", delta: "-2 pts vs. Wave 5 (53%→51%)" },
-          { value: "56.1% / 52.1%", label: "Cannabis Purchase Rate — GM / WE Clusters", delta: "vs. 41.3% for Light Spirit Drinkers" },
-          { value: "66.9%", label: "Brand Awareness (vs. 55.1% Non-Purchasers)", delta: "+11.8 pts" },
-        ],
-        narrative:
-          "Chapter 2 raises cannabis substitution as one possible driver of the brown-spirits softening. Notably, cannabis crossover is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%) — the same clusters driving category engagement and advocacy — and lowest among Light Spirit Drinkers (41.3%). This suggests the substitution effect, if real, coexists with strong underlying brand affinity rather than category abandonment.",
-        takeaway:
-          "Cannabis crossover may contribute to category softening, but it concentrates in OHLQ's most engaged clusters, who remain highly brand-positive overall.",
-        implication:
-          "Don't treat cannabis crossover as pure category loss — use lighter, mixable categories and targeted digital content to re-engage this audience, which is already predisposed toward the brand.",
-      },
-    },
-  },
-  {
-    id: "ch3",
-    number: "03",
-    title: "Occasion",
-    framing: "When and why are shoppers buying?",
-    hasSegments: false,
-    hasChart: "occasions-heatmap",
-    questions: [
-      "Which categories over-index for gifting?",
-      "Where is the biggest untapped conversion opportunity?",
-      "What makes Canadian Whisky a pantry staple?",
-    ],
-    content: {
-      all: {
-        stats: [
-          { value: "63%", label: "American Whiskey — Personal Use Rate", delta: "Highest personal-use rate of any category" },
-          { value: "48%", label: "Canadian Whisky — Restock Rate", delta: "Marks it as a pantry staple" },
-          { value: "38%", label: "Scotch & Japanese/Int'l Whiskey — Gifting Rate", delta: "Leads all categories in gifting" },
-        ],
-        narrative:
-          "Personal use at home and restocking dominate purchase missions across every category: personal use ranges from 33% for Japanese/International Whiskey to 63% for American Whiskey, while restocking ranges from 29% to 51%. Gifting is a meaningful secondary mission for higher-consideration categories, with Scotch and Japanese/International Whiskey leading at 38% each. Gin leads cocktail and recipe-driven purchase at 27%, while Canadian Whisky's high restock rate (48%) marks it firmly as a pantry staple. Exploration-driven occasions — trying something new, buying as a souvenir or collector's item — index highest among Scotch (23%) and Japanese/International Whiskey (38%). Cordial and RTD shoppers show the highest unplanned purchase rates at 21% and 19% respectively.",
-        takeaway:
-          "Most volume is driven by routine missions. The highest-growth opportunity lies in converting in-store traffic into exploratory purchases, particularly in premium and specialty categories where discovery intent is already elevated.",
-        implication:
-          "Concentrate in-store merchandising, sampling, and display investment around discovery-oriented categories (Scotch, Japanese Whiskey, gin) and impulse-prone categories (cordials, RTDs), rather than distributing evenly across the floor.",
-      },
-    },
-  },
-  {
-    id: "ch4",
-    number: "04",
-    title: "Information Sources / Shopping Experience",
-    framing: "Where do shoppers go to learn and decide?",
-    hasSegments: false,
-    hasChart: "info-sources",
-    questions: [
-      "How big a role do AI tools play in research today?",
-      "Why do owned channels trail despite high usefulness scores?",
-      "Which digital channel should get the most investment?",
-    ],
-    content: {
-      all: {
-        stats: [
-          { value: "50%", label: "Word of Mouth — Top Information Source", delta: "Outranks every digital channel" },
-          { value: "38%", label: "Facebook — Leading Digital Channel", delta: "Ahead of search (35%) and YouTube (34%)" },
-          { value: "12%", label: "AI Tools (e.g. ChatGPT) for Liquor Research", delta: "New metric, on par with influencers/podcasts" },
-        ],
-        narrative:
-          "Information seeking is overwhelmingly personal and in-store: word of mouth (50%), in-store signage and displays (30%), store employees (27%), and bartenders or servers (25%) all outrank every digital source. Among digital channels, Facebook (38%), search (35%), and YouTube (34%) lead, with Instagram (21%) and TikTok (21%) close behind. OHLQ.com (22%) competes well as an information source, but owned channels including the app (13%), social (11%), and email (11%) trail significantly. AI tools like ChatGPT already register at 12% for liquor research despite appearing in the survey for the first time this wave. Among those who do engage with OHLQ's owned channels, the app drives the highest visit frequency (18% daily, 31% weekly), and usefulness scores across all owned channels range from 83% to 89% top-2-box — meaning quality is not the barrier to engagement, reach and habit formation are.",
-        takeaway:
-          "Human interaction and in-store touchpoints are the primary drivers of purchase decisions. Digital channels matter for discovery but play a secondary role.",
-        implication:
-          "Field marketing, knowledgeable staff, and in-store signage likely deliver a higher ROI than digital spend for most segments. Concentrate digital investment on Facebook, search, and YouTube, and on building app adoption among the already-engaged high-frequency user base.",
-      },
-    },
-  },
-  {
-    id: "ch5",
-    number: "05",
-    title: "Attributes / Drivers",
-    framing: "What do shoppers value, and how does that connect to revenue?",
-    hasSegments: true,
-    hasChart: "attribute-scatter",
-    questions: [
-      "Which cluster is hardest to satisfy on attributes?",
-      "Why did knowledgeable staff performance decline?",
-      "What's the single highest-ROI investment based on this data?",
-    ],
-    content: {
-      all: {
-        stats: [
-          { value: "0.46", label: "Convenient Shopping Experience — Top Derived Driver", delta: "Highest-ranked attribute" },
-          { value: "90%", label: "Good Value — Stated Importance", delta: "+5 pts vs. Wave 5 (85%→90%)" },
-          { value: "75%", label: "Knowledgeable Staff — Performance", delta: "-3 pts vs. Wave 5 (78%→75%)" },
-        ],
-        narrative:
-          "The attributes that most strongly predict whether shoppers recommend OHLQ align closely with the operational and revenue drivers that matter most to the business. Convenient shopping experience ranks first in derived importance (correlation 0.46), a clean and organized store environment ranks second (0.45), brand trust ranks third (0.43), easy navigation ranks fourth (0.43), and helpful displays rank fifth (0.41) — representing the largest gap between stated and derived importance. Good value increased significantly from 85% to 90% in stated importance this wave, its largest single-wave gain. OHLQ's performance against the highest-derived-importance attributes is strong: assortment at 86%, navigation at 86%, and convenience at 85% all rate well. The one soft spot is knowledgeable staff, which slipped from 78% to 75% top-2-box.",
-        takeaway:
-          "Retail execution, value perception, and in-store discovery are the three revenue levers most directly supported by the attribute data. Staff knowledge is the most actionable gap.",
-        implication:
-          "Investment that strengthens planogram execution, in-store display quality, and staff product knowledge will have a more measurable impact on advocacy and revenue than brand communications alone.",
-      },
-      we: {
-        stats: [
-          { value: "88.9%", label: "Brand Trust — Agreement About OHLQ", delta: "Highest of any cluster, vs. 81.4% average" },
-          { value: "90.5%", label: "Easy to Navigate — Agreement About OHLQ", delta: "Highest of any cluster, vs. 84.5% average" },
-          { value: "82.7%", label: "Knowledgeable Staff — Agreement About OHLQ", delta: "vs. 74.3% average" },
-        ],
-        narrative:
-          "Whisky Enthusiasts rate OHLQ's performance higher than any other cluster on trust (88.9%), navigation (90.5%), and knowledgeable staff (82.7%) — all well above the shopper-wide average. This cluster also places above-average stated importance on staff knowledge (74.3% vs. 71.4% average) and helpful displays (74.4% vs. 71.2%), meaning the overall 3-point decline in staff knowledge performance is worth watching closely for the segment that currently rates OHLQ most favorably.",
-        takeaway:
-          "WE currently rates OHLQ's execution higher than any other cluster — protecting that lead, especially on staff knowledge, is critical to preserving this segment's outsized advocacy.",
-        implication:
-          "Pilot staff training investment first in stores and regions with high Whisky Enthusiast traffic, where both the stakes and the visibility of the return are highest.",
-      },
-      ls: {
-        stats: [
-          { value: "64.0%", label: "Helpful Displays — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 71.4% average" },
-          { value: "68.3%", label: "Knowledgeable Staff — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 74.3% average" },
-          { value: "72.7%", label: "Good Value — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 77.3% average" },
-        ],
-        narrative:
-          "Light Spirit Drinkers rate OHLQ's performance lowest of any profiled cluster on nearly every attribute measured — helpful displays (64.0%), knowledgeable staff (68.3%), good value (72.7%), and learn/explore (61.3%) all trail the shopper-wide average. Stated importance for these same discovery-oriented attributes is also lowest for LS, so the gap reflects lower engagement more than active dissatisfaction — LS shoppers care less about these attributes and rate OHLQ's delivery on them lower as well.",
-        takeaway:
-          "LS is both the least engaged with discovery-oriented attributes and the cluster that rates OHLQ's delivery on them lowest — but this reflects lower priority, not acute dissatisfaction.",
-        implication:
-          "Prioritize checkout speed, restock ease, and price-competitiveness messaging for this segment over in-store education content, which would be reaching an audience that has told us it cares less about it.",
-      },
-      gm: {
-        stats: [
-          { value: "90.8%", label: "Convenient Shopping — Agreement About OHLQ", delta: "Highest of any cluster, vs. 82.1% average" },
-          { value: "93.1%", label: "Wide Assortment — Agreement About OHLQ", delta: "Highest of any cluster, vs. 88.0% average" },
-          { value: "95.6%", label: "Wide Assortment — Stated Importance", delta: "Highest of any cluster, vs. 84.2% average" },
-        ],
-        narrative:
-          "Gin-Lovers Mixologists both demand the most (95.6% stated importance on wide assortment, the highest of any cluster) and rate OHLQ's delivery the highest on several core attributes — convenience (90.8%), assortment (93.1%), and clean/organized environment (85.0%). This is a segment with high standards that OHLQ is currently meeting on execution basics, though its stated importance on knowledgeable staff (85.3%) still outpaces OHLQ's performance among this cluster (75.8%).",
-        takeaway:
-          "GM is a high-expectation, high-satisfaction cluster on core execution attributes, but the staff-knowledge gap (85.3% importance vs. 75.8% performance) is the largest of any measured attribute for this segment.",
-        implication:
-          "Pilot cocktail-recipe end-caps and mixology-focused displays in stores with high GM concentration, and prioritize staff training investment there as well — this cluster will both notice and reward the improvement.",
-      },
-      cannabis: {
-        stats: [
-          { value: "79.5%", label: "OHLQ.com Navigation Ease (Cannabis Purchasers)", delta: "-20.5 pts vs. 100% among non-purchasers" },
-          { value: "Above Avg.", label: "Digital Discovery Engagement", delta: "Over-indexes on Facebook, Reddit, X" },
-          { value: "89.9%", label: "Very Positive Brand Opinion", delta: "+11.6 pts vs. non-purchasers" },
-        ],
-        narrative:
-          "The widest single disparity in the Wave 6 dataset is this segment's OHLQ.com navigation experience — rated 79.5% versus 100% among non-purchasers — despite otherwise excellent brand sentiment (89.9% very positive opinion).",
-        takeaway:
-          "Attribute performance for cannabis purchasers is bifurcated: sentiment is excellent, digital usability is not.",
-        implication:
-          "OHLQ.com UX remediation targeted at this segment is a discrete, high-ROI fix rather than a broad brand problem.",
-      },
-    },
-  },
+
+  // ───────────────────────── BRAND HEALTH ─────────────────────────
   {
     id: "ch6",
-    number: "06",
+    number: "01",
+    group: "Brand Health",
     title: "Awareness and Recognition",
     framing: "How well known and recognizable is OHLQ as a brand?",
     hasSegments: false,
@@ -734,10 +446,15 @@ const CHAPTERS = [
           { value: "70%", label: "Logo Recall", delta: "-4 pts vs. Wave 5 (74%→70%)" },
           { value: "12%", label: "Name-Specific Mentions", delta: "+10 pts vs. baseline (2%→12%)" },
         ],
-        narrative:
-          "Unaided awareness sits at 25% and aided awareness at 60%, both consistent with the past several waves. OHLQ ranks second in aided awareness behind only Kroger, up from fourth at baseline. Name-specific mentions grew from 2% at baseline to 12% today, while generic 'state store' references declined from 19% to 13% — a clear shift from commodity to brand. Four new competitors entered the consideration set for the first time in Wave 6: Total Wine, Spec's, WhiskeySearcher, and Wine Searcher. Logo recall reached 70%, more than double the 35% baseline, but declined 4 points from 74% in Wave 5 — the first decline after five consecutive waves of growth. Logo recognition continues to outpace aided brand awareness (70% vs. 60%). OHLQ locations remain the top source of logo recall at 49%.",
         takeaway:
           "Aided awareness has been flat at 60–62% for three consecutive waves and unaided awareness at 22–25% for two waves, suggesting the brand is near its current ceiling with this audience. Logo recall at 70% continues to outpace aided awareness at 60%, meaning the visual mark is more recognizable than the brand name.",
+        bullets: [
+          "Unaided awareness sits at 25% and aided awareness at 60%, both consistent with the past several waves — a plateau, not a decline.",
+          "OHLQ ranks second in aided awareness behind only Kroger, up from fourth at baseline; four new competitors (Total Wine, Spec's, WhiskeySearcher, Wine Searcher) entered the set this wave.",
+          "Name-specific mentions grew 2%→12% since baseline, while generic 'state store' references fell 19%→13% — OHLQ is shedding the generic label and becoming a distinct, trusted brand.",
+          "Logo recall reached 70%, more than double the 35% baseline, but dipped 4 points from 74% in Wave 5 — the first decline after five consecutive waves of growth.",
+          "This tracker doesn't include an external, cross-category benchmark, so we can't yet say how OHLQ's ~60% aided ceiling compares to other retail brands — worth sourcing separately if a competitive read is needed.",
+        ],
         implication:
           "Shift media strategy from broad awareness-building to contextual relevance at the moments shoppers are deciding, particularly in-store and on search.",
       },
@@ -745,7 +462,8 @@ const CHAPTERS = [
   },
   {
     id: "ch7",
-    number: "07",
+    number: "02",
+    group: "Brand Health",
     title: "Satisfaction",
     framing: "How satisfying, trustworthy, and useful is the OHLQ experience?",
     hasSegments: true,
@@ -762,10 +480,14 @@ const CHAPTERS = [
           { value: "62.3", label: "Net Promoter Score", delta: "-7.3 pts vs. Wave 5 (69.6→62.3)" },
           { value: "83%", label: "Trust — Top-2-Box", delta: "+5 pts vs. Wave 5 (78%→83%)" },
         ],
-        narrative:
-          "OHLQ's top-2-box satisfaction reached 97% this wave, up 4 points from 93% in Wave 5 and the highest level recorded since tracking began, and negative opinions have effectively disappeared. Net Promoter Score declined from 69.6 to 62.3 (-7.3 pts), but this requires context: Wave 5 was fielded immediately following the November 2024 presidential election, a period of measurably elevated consumer confidence across all retailers (Giant Eagle spiked 61.4→70.3, Kroger 48.1→63.3, independents 64.9→79.0). Wave 6 represents a return to baseline conditions, and OHLQ's 62.3 NPS remains 12.7 points above its Wave 1 score of 49.6. Trust rose 5 points, from 78% to 83%, and 60% of shoppers hold a very positive overall opinion, up 21 points since Wave 1. OHLQ.com satisfaction hit an all-time high at 95%.",
         takeaway:
-          "Top-2-box satisfaction rose 4 points to 97% and trust rose 5 points to 83% — both tracker highs. NPS declined 7.3 points to 62.3, but the drop isn't isolated to OHLQ: Giant Eagle and Kroger both saw NPS rise in Wave 5 and fall back in Wave 6 (Giant Eagle +8.9 then -17.8, Kroger +15.2 then -12.0). That pattern is consistent with a category-wide Wave 5 spike rather than an OHLQ-specific decline — the post-election timing is one plausible factor for the jump in Wave 5 results, and now we are observing a return to normalcy in Wave 6.",
+          "Top-2-box satisfaction rose 4 points to 97% and trust rose 5 points to 83% — both tracker highs. NPS declined 7.3 points to 62.3, but the drop isn't isolated to OHLQ: Giant Eagle and Kroger both saw NPS rise in Wave 5 and fall back in Wave 6, consistent with a category-wide Wave 5 spike rather than an OHLQ-specific decline.",
+        bullets: [
+          "Top-2-box satisfaction reached 97%, up 4 points from 93% in Wave 5 — the highest level recorded since tracking began.",
+          "NPS declined from 69.6 to 62.3 (-7.3 pts), but Wave 5 was fielded immediately after the Nov. 2024 election, a period of elevated consumer confidence across all retailers (Giant Eagle +8.9, Kroger +15.2, independents +14.1 that wave).",
+          "Wave 6 represents a return to baseline; OHLQ's 62.3 NPS remains 12.7 points above its Wave 1 score of 49.6.",
+          "Trust rose 5 points to 83%, very positive opinion held at 60% (+21 pts since Wave 1), and OHLQ.com satisfaction hit an all-time high of 95%.",
+        ],
         implication:
           "The app's engagement frequency pattern is the clearest model for deepening digital loyalty — migrating OHLQ.com visitors toward app adoption is the highest-ROI digital investment available.",
       },
@@ -775,10 +497,13 @@ const CHAPTERS = [
           { value: "79.2%", label: "Promoter Rate", delta: "vs. 69.8% average" },
           { value: "4.4%", label: "Detractor Rate", delta: "vs. 7.3% average — lowest of any cluster" },
         ],
-        narrative:
-          "Whisky Enthusiasts post an NPS of 74.8 versus a 62.5 average across the cluster base — a gap driven by both a higher promoter rate (79.2% vs. 69.8%) and a notably lower detractor rate (4.4% vs. 7.3%). Satisfaction itself is comparable across clusters (95.5% top-2-box for WE), so the advocacy gap is really about conviction: WE shoppers who are satisfied are far more likely to say so at the top of the recommendation scale.",
         takeaway:
           "WE is both OHLQ's strongest advocacy engine and the clearest proof point that satisfaction alone doesn't predict advocacy — conviction does.",
+        bullets: [
+          "Whisky Enthusiasts post an NPS of 74.8 vs. a 62.5 average across the cluster base — the highest of any cluster.",
+          "The gap is driven by both a higher promoter rate (79.2% vs. 69.8%) and a lower detractor rate (4.4% vs. 7.3%).",
+          "Satisfaction itself is comparable across clusters (95.5% for WE), so the advocacy gap is about conviction, not satisfaction.",
+        ],
         implication:
           "Track WE-specific NPS as a leading indicator of brand health, and study what drives this cluster's outsized promoter conviction to replicate it in other segments.",
       },
@@ -788,10 +513,12 @@ const CHAPTERS = [
           { value: "10.0%", label: "Detractor Rate", delta: "Highest of any cluster, vs. 7.3% average" },
           { value: "65.1%", label: "'Very Satisfied' Rate", delta: "Lowest of any cluster, vs. 70.9% average" },
         ],
-        narrative:
-          "Light Spirit Drinkers show comparable top-2-box satisfaction to other clusters (95.8%) but the lowest 'very satisfied' rate (65.1% vs. 70.9% average) and the highest detractor rate (10.0%), producing the lowest NPS of the three profiled clusters at 52.4.",
         takeaway:
           "LS satisfaction is real but shallow — high top-2-box scores mask the lowest conviction and highest detractor rate of any profiled cluster.",
+        bullets: [
+          "Light Spirit Drinkers show comparable top-2-box satisfaction to other clusters (95.8%) but the lowest 'very satisfied' rate (65.1% vs. 70.9% average).",
+          "LS also carries the highest detractor rate (10.0%), producing the lowest NPS of the three profiled clusters at 52.4.",
+        ],
         implication:
           "Monitor LS-specific NPS (not just satisfaction) as an early-warning metric, since this cluster's size means even modest movement in its detractor rate could meaningfully affect OHLQ's overall NPS.",
       },
@@ -801,10 +528,12 @@ const CHAPTERS = [
           { value: "96.0%", label: "Top-2-Box Satisfaction", delta: "Highest of any cluster" },
           { value: "76.0%", label: "'Very Satisfied' Rate", delta: "Highest of any cluster, vs. 70.9% average" },
         ],
-        narrative:
-          "Gin-Lovers Mixologists post the highest top-2-box satisfaction (96.0%) and 'very satisfied' rate (76.0%) of any cluster, yet their NPS (60.1) sits close to the overall average — driven by a higher passive rate (29.4% score 7-8) than WE, meaning highly satisfied GM shoppers are somewhat less likely than WE shoppers to convert that satisfaction into a top-box recommendation score.",
         takeaway:
           "GM is highly satisfied but converts that satisfaction into advocacy less efficiently than Whisky Enthusiasts — a conversion gap worth closing given this cluster's high engagement elsewhere.",
+        bullets: [
+          "Gin-Lovers Mixologists post the highest top-2-box satisfaction (96.0%) and 'very satisfied' rate (76.0%) of any cluster.",
+          "Their NPS (60.1) sits close to the overall average, driven by a higher passive rate than WE — highly satisfied GM shoppers convert to top-box recommendations less often.",
+        ],
         implication:
           "Test targeted recommendation prompts or loyalty incentives for GM shoppers at the point of high satisfaction (e.g., post-purchase, post-recipe-content engagement) to convert passive sentiment into active advocacy.",
       },
@@ -814,10 +543,12 @@ const CHAPTERS = [
           { value: "Above Avg.", label: "Overall Satisfaction", delta: "Higher engagement across discovery channels" },
           { value: "79.5%", label: "OHLQ.com Navigation Satisfaction", delta: "-20.5 pts vs. non-purchasers" },
         ],
-        narrative:
-          "Cannabis purchasers hold more positive opinions of OHLQ than non-purchasers across nearly every measure, but satisfaction is bifurcated by the same OHLQ.com navigation gap identified in Chapter 5 and Chapter 9.",
         takeaway:
           "Overall sentiment is excellent for this segment; a specific digital usability gap is the exception, not the rule.",
+        bullets: [
+          "Cannabis purchasers hold more positive opinions of OHLQ than non-purchasers across nearly every measure.",
+          "Satisfaction is bifurcated by the same OHLQ.com navigation gap identified in the Attributes and Emerging Trends chapters.",
+        ],
         implication:
           "Closing the OHLQ.com navigation gap is the single highest-leverage satisfaction fix available for this segment.",
       },
@@ -825,7 +556,8 @@ const CHAPTERS = [
   },
   {
     id: "ch8",
-    number: "08",
+    number: "03",
+    group: "Brand Health",
     title: "Promotion",
     framing: "Is OHLQ's messaging landing with shoppers?",
     hasSegments: false,
@@ -842,18 +574,383 @@ const CHAPTERS = [
           { value: "21%", label: "Unaided Communication Recall", delta: "Steady, well above baseline" },
           { value: "83%", label: "Correct ID Rate for 'Liquordation'", delta: "vs. only 20% recall / frequent misread for 'Last Call'" },
         ],
-        narrative:
-          "Unaided communication recall held steady at 21%, well above baseline, though recall among 21–34 year-olds dropped sharply from 34% to 21% while 35–54 year-olds grew from 20% to 28%. The most significant finding: recall of 'Raise a Glass. Responsibly.' dropped from 69% to 49% (-20 pts), falling below every prior wave after years of steady growth. Among promotional mechanics, the performance gap between 'Last Call' and 'Liquordation' is stark: only 20% of shoppers recall the 'Last Call' tag, and among those who do, most interpret it as bar closing time rather than a discontinued product event. By contrast, 'Liquordation' is recalled by 11% of shoppers, and 83% of those who recognize it correctly identify it as a discount or sale signal.",
         takeaway:
           "The sharp drop in 'Raise a Glass' recall is the clearest red flag in Wave 6. Liquordation should be the creative model for future in-store promotions; Last Call needs a fundamental rethink before it can function as an effective conversion tool.",
+        bullets: [
+          "Unaided communication recall held steady at 21%, well above baseline, though recall among 21–34 year-olds dropped sharply from 34% to 21% while 35–54 year-olds grew from 20% to 28%.",
+          "Recall of 'Raise a Glass. Responsibly.' dropped from 69% to 49% (-20 pts) — falling below every prior wave after years of steady growth.",
+          "Only 20% of shoppers recall the 'Last Call' tag, and most who do interpret it as bar closing time rather than a discontinued-product event.",
+          "'Liquordation' is recalled by 11% of shoppers, and 83% of those who recognize it correctly identify it as a discount or sale signal.",
+        ],
         implication:
           "Test message comprehension before launch — if a shopper cannot identify what a promotional tag means within two seconds, it will not drive behavior at shelf.",
       },
     },
   },
+
+  // ───────────────────────── SHOPPER EXPERIENCE ─────────────────────────
+  {
+    id: "ch1",
+    number: "04",
+    group: "Shopper Experience",
+    title: "Shopper Profile / Segmentation",
+    framing: "Who are today's Ohio liquor shoppers?",
+    hasSegments: true,
+    hasChart: "cluster-dist",
+    questions: [
+      "Which purchasing cluster is most valuable for advocacy?",
+      "How does Gin-Lovers Mixologists' engagement compare across attributes?",
+      "What does the cannabis crossover mean for targeting?",
+    ],
+    content: {
+      all: {
+        stats: [
+          { value: "51%", label: "Also Purchased Cannabis (Past 6 Mo.)", delta: "-2 pts vs. Wave 5 (53%→51%)" },
+          { value: "412", label: "Light Spirit Drinkers — Largest Cluster", delta: "42% of the n=990 cluster base" },
+          { value: "6", label: "Distinct Purchasing Clusters", delta: "Same taxonomy since Wave 1" },
+        ],
+        takeaway:
+          "The shopper base is not one audience. Whisky Enthusiasts and Gin-Lovers Mixologists — the clusters most engaged across categories, attributes, and digital channels — are also OHLQ's strongest advocates, while Light Spirit Drinkers anchor volume without driving advocacy.",
+        bullets: [
+          "Light Spirit Drinkers are the largest cluster (n=412, 42% of the base), skew older (33.9% are 55+), and drive volume in vodka, RTDs, and lower-cost spirits — but under-index on nearly every category.",
+          "Whisky Enthusiasts (n=292) concentrate in American whiskey (64.4%), Irish whiskey (39.0%), and Canadian whisky (48.3%), skew male (57.5%), and post OHLQ's highest NPS of any cluster.",
+          "Gin-Lovers Mixologists (n=157) skew young (61.8% aged 21-44) and male (66.2%), over-index on gin (66.2% vs. 19.8% average), and rate nearly every category and attribute above average.",
+          "Cannabis crossover fell 2 points vs. Wave 5 (53%→51%), but stays highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%).",
+        ],
+        implication:
+          "Tiered messaging that serves Light Spirit Drinkers with convenience and value cues, while serving Whisky Enthusiasts and Gin-Lovers Mixologists with discovery, education, and exclusive access, will be more effective than a single mass-market approach.",
+      },
+      we: {
+        stats: [
+          { value: "292", label: "Cluster Size (of n=990 Base)", delta: "Concentrated in American/Irish whiskey" },
+          { value: "64.4%", label: "American Whiskey Purchase Rate", delta: "vs. 52.3% average" },
+          { value: "74.8", label: "NPS for OHLQ", delta: "vs. 62.5 average — highest of any cluster" },
+        ],
+        takeaway:
+          "WE is OHLQ's highest-value advocacy cluster by a wide margin — the highest NPS, the highest trust score, and among the most digitally engaged.",
+        bullets: [
+          "Whisky Enthusiasts concentrate in American whiskey (64.4% vs. 52.3% average), Irish whiskey (39.0% vs. 24.6%), and Canadian whisky (48.3% vs. 33.5%).",
+          "The cluster skews male (57.5%) and 35-44 (32.9%).",
+          "WE is OHLQ's clearest advocacy engine: NPS of 74.8 vs. 62.5 average, driven by a 79.2% promoter rate and just a 4.4% detractor rate.",
+          "WE also posts the highest trust score of any cluster (88.9% top-2-box) and the highest AI-tool adoption for liquor research (19.9% vs. 13.0% average).",
+        ],
+        implication:
+          "Prioritize tasting events, enthusiast education content, and early access to limited whiskey releases for this cluster — it converts engagement into advocacy more efficiently than any other segment.",
+      },
+      ls: {
+        stats: [
+          { value: "412", label: "Cluster Size — Largest of the Six", delta: "42% of the n=990 base" },
+          { value: "33.9%", label: "Aged 55+", delta: "Oldest cluster in the study" },
+          { value: "52.4", label: "NPS for OHLQ", delta: "vs. 62.5 average — lowest of the three profiled clusters" },
+        ],
+        takeaway:
+          "LS drives volume, not advocacy. This cluster is broadly satisfied but far less likely than WE or GM to actively recommend OHLQ.",
+        bullets: [
+          "Light Spirit Drinkers are the largest cluster by a wide margin and skew older — 33.9% are 55 or older, the highest share of any cluster.",
+          "LS under-indexes on nearly every category (American whiskey 45.9% vs. 52.3% average, gin just 4.9% vs. 19.8%).",
+          "LS also under-indexes on discovery attributes like helpful displays (63.1% importance vs. 71.2% average) and knowledgeable staff (64.4% vs. 71.4%).",
+          "Satisfaction remains high (95.8% top-2-box) but NPS is the lowest of the three profiled clusters at 52.4, driven by a lower promoter rate (62.4%) and the highest detractor rate (10.0%).",
+        ],
+        implication:
+          "Focus messaging on convenience, reliability, and value for this segment rather than discovery-oriented campaigns, which land far better with Whisky Enthusiasts and Gin-Lovers Mixologists.",
+      },
+      gm: {
+        stats: [
+          { value: "157", label: "Cluster Size (of n=990 Base)", delta: "Skews young (61.8% aged 21-44) and male (66.2%)" },
+          { value: "66.2%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — by far the largest category skew in the study" },
+          { value: "95.6%", label: "Wide Assortment — Stated Importance", delta: "Highest of any cluster, vs. 84.2% average" },
+        ],
+        takeaway:
+          "GM is a high-engagement, high-expectation cluster across the board — the segment most likely to notice and reward (or penalize) assortment, staff knowledge, and display quality.",
+        bullets: [
+          "Gin-Lovers Mixologists don't just over-index on gin (66.2% vs. 19.8% average) — they rate nearly every category and attribute above average.",
+          "Vodka (77.7%), tequila (52.2%), rum (53.5%), and brandy/cognac (35.7%) all outpace the shopper-wide average.",
+          "Wide assortment importance (95.6%) and knowledgeable staff importance (85.3%) are both the highest of any cluster.",
+          "OHLQ.com/social engagement is well above the norm (Facebook 52.9%, YouTube 52.9%), making GM OHLQ's most broadly engaged cluster.",
+        ],
+        implication:
+          "Invest in cocktail recipe content, mixology education, and cross-merchandising with adjacent spirits — but also ensure in-store execution (assortment, displays, staff knowledge) is strongest where GM shoppers concentrate, since this cluster's expectations are the highest in the study.",
+      },
+      cannabis: {
+        stats: [
+          { value: "66.9%", label: "Brand Awareness (vs. 55.1% Non-Purchasers)", delta: "+11.8 pts" },
+          { value: "57.6%", label: "Ever Shopped OHLQ (vs. 43.4%)", delta: "+14.2 pts" },
+          { value: "89.9%", label: "Very Positive Brand Opinion (vs. 78.3%)", delta: "+11.6 pts" },
+        ],
+        takeaway:
+          "Cannabis purchasers out-perform non-purchasers on every brand measure tracked, and the behavior concentrates most heavily in the clusters — Whisky Enthusiasts and Gin-Lovers Mixologists — that already drive the most advocacy.",
+        bullets: [
+          "Cannabis purchasers make up 51% of respondents, down 2 points from Wave 5's 53%.",
+          "They out-perform non-purchasers on every brand measure: awareness 66.9% vs. 55.1%, ever shopped OHLQ 57.6% vs. 43.4%, shop OHLQ most often 31.8% vs. 18.1%, and very positive brand opinion 89.9% vs. 78.3%.",
+          "Cannabis crossover is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%), and lowest among Light Spirit Drinkers (41.3%).",
+        ],
+        implication:
+          "Treat cannabis crossover as a targeting asset, not a risk — this audience is already predisposed toward OHLQ and is reachable through the social and Reddit channels where it over-indexes, particularly among Whisky Enthusiasts and Gin-Lovers Mixologists.",
+      },
+    },
+  },
+  {
+    id: "ch2",
+    number: "05",
+    group: "Shopper Experience",
+    title: "Category",
+    framing: "What are shoppers buying?",
+    hasSegments: true,
+    hasChart: "category-wow",
+    questions: [
+      "Why is American whiskey softening?",
+      "Which cluster is driving the gin growth?",
+      "Is cannabis substitution really behind the whiskey decline?",
+    ],
+    content: {
+      all: {
+        stats: [
+          { value: "68%", label: "Vodka Purchase Rate", delta: "Steady vs. Wave 5" },
+          { value: "51%", label: "American Whiskey Purchase Rate", delta: "-5 pts vs. Wave 5 (56%→51%)" },
+          { value: "15%", label: "Non-Alcoholic Beer/Wine/Liquor Purchasers", delta: "Up significantly vs. Wave 5" },
+        ],
+        takeaway:
+          "Vodka and tequila are the two most purchased categories and held steady wave over wave. American whiskey's 5-point drop is the largest single-category shift this wave; the data does not identify a single cause, but 43% of shoppers are buying cheaper options and cannabis crossover is highest in the clusters most concentrated in brown spirits.",
+        bullets: [
+          "Vodka (68%) and tequila (55%) remain the most widely purchased categories and held steady wave over wave.",
+          "American whiskey softened from 56% to 51% (-5 pts), the largest single-category shift this wave; Irish whiskey fell 28%→24% (-4 pts) and brandy/cognac fell 25%→22% (-3 pts).",
+          "Gin, scotch, cordials, and RTDs all increased vs. Wave 5 (exact point deltas not published).",
+          "Non-alcoholic beer, wine, and liquor purchases increased significantly, reaching 15% of respondents this wave.",
+        ],
+        implication:
+          "Lean into the growing tequila and gin segments with cocktail and recipe content, while shifting American whiskey marketing from broad reach to high-value enthusiast targeting.",
+      },
+      we: {
+        stats: [
+          { value: "64.4%", label: "American Whiskey Purchase Rate", delta: "vs. 52.3% average — highest of any cluster" },
+          { value: "39.0%", label: "Irish Whiskey Purchase Rate", delta: "vs. 24.6% average — highest of any cluster" },
+          { value: "48.3%", label: "Canadian Whisky Purchase Rate", delta: "vs. 33.5% average — highest of any cluster" },
+        ],
+        takeaway:
+          "The whiskey softening trend is concentrated within OHLQ's most valuable cluster's own core category — a retention issue for the segment that matters most, not just a category-mix shift.",
+        bullets: [
+          "Whisky Enthusiasts are concentrated in exactly the categories showing wave-over-wave softening — American whiskey (-5 pts) and Irish whiskey (-4 pts) — plus Canadian whisky, which also declined.",
+          "This cluster over-indexes heavily on brown spirits: 64.4%, 39.0%, and 48.3% respectively, all the highest of any cluster.",
+        ],
+        implication:
+          "Defend WE with premium and limited whiskey releases while actively expanding credible adjacent categories — WE also shows meaningfully above-average scotch purchase (25.0% vs. 16.2%) — to capture this cluster's exploration spend.",
+      },
+      ls: {
+        stats: [
+          { value: "56.1%", label: "Vodka Purchase Rate", delta: "vs. 66.8% average — still the largest single category for LS" },
+          { value: "20.1%", label: "RTD Purchase Rate", delta: "Below average (28.6%), but LS's large base still anchors volume" },
+          { value: "4.9%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — lowest of the three profiled clusters" },
+        ],
+        takeaway:
+          "LS's size, not its category engagement, is what matters for OHLQ's overall numbers — this cluster is not driving (or exposed to) the category shifts seen elsewhere in the data.",
+        bullets: [
+          "Light Spirit Drinkers under-index on nearly every individual category: vodka (56.1% vs. 66.8%), gin (4.9% vs. 19.8%), RTDs (20.1% vs. 28.6%).",
+          "LS is the least exposed of any profiled cluster to the American whiskey softening trend (45.9% purchase rate vs. 52.3% average) — whiskey was never central to this cluster's mix.",
+        ],
+        implication:
+          "Category-mix messaging (whiskey rebalancing, gin growth, RTD innovation) will land better with Whisky Enthusiasts and Gin-Lovers Mixologists than with this larger but lower-intensity cluster.",
+      },
+      gm: {
+        stats: [
+          { value: "66.2%", label: "Gin Purchase Rate", delta: "vs. 19.8% average — the single largest category skew in the study" },
+          { value: "77.7%", label: "Vodka Purchase Rate", delta: "Highest of any cluster, vs. 66.8% average" },
+          { value: "53.5%", label: "Rum Purchase Rate", delta: "vs. 37.0% average" },
+        ],
+        takeaway:
+          "Category growth in gin this wave is being driven almost entirely by this cluster's mixology-oriented purchase behavior, and their engagement extends well beyond gin alone.",
+        bullets: [
+          "Gin-Lovers Mixologists are the clear driver of gin's uptick this wave, purchasing gin at more than three times the shopper-wide rate (66.2% vs. 19.8%).",
+          "This cluster also leads on vodka (77.7%) and shows above-average purchase of rum, tequila, brandy/cognac, and scotch — a broadly high-engagement category profile, not a single-category niche.",
+        ],
+        implication:
+          "Cross-merchandise gin with vodka, rum, and tequila under mixology and cocktail-recipe content aimed specifically at GM shoppers, who are already buying broadly across the spirits aisle.",
+      },
+      cannabis: {
+        stats: [
+          { value: "51%", label: "Overlap With Total OHLQ Shopper Base", delta: "-2 pts vs. Wave 5 (53%→51%)" },
+          { value: "56.1% / 52.1%", label: "Cannabis Purchase Rate — GM / WE Clusters", delta: "vs. 41.3% for Light Spirit Drinkers" },
+          { value: "66.9%", label: "Brand Awareness (vs. 55.1% Non-Purchasers)", delta: "+11.8 pts" },
+        ],
+        takeaway:
+          "Cannabis crossover may contribute to category softening, but it concentrates in OHLQ's most engaged clusters, who remain highly brand-positive overall.",
+        bullets: [
+          "This chapter raises cannabis substitution as one possible driver of the brown-spirits softening.",
+          "Crossover is highest among Gin-Lovers Mixologists (56.1%) and Whisky Enthusiasts (52.1%) — the same clusters driving category engagement and advocacy — and lowest among Light Spirit Drinkers (41.3%).",
+          "This suggests any substitution effect coexists with strong underlying brand affinity rather than category abandonment.",
+        ],
+        implication:
+          "Don't treat cannabis crossover as pure category loss — use lighter, mixable categories and targeted digital content to re-engage this audience, which is already predisposed toward the brand.",
+      },
+    },
+  },
+  {
+    id: "ch3",
+    number: "06",
+    group: "Shopper Experience",
+    title: "Occasion",
+    framing: "When and why are shoppers buying?",
+    hasSegments: false,
+    hasChart: "occasions-heatmap",
+    questions: [
+      "Which categories over-index for gifting?",
+      "Where is the biggest untapped conversion opportunity?",
+      "What makes Canadian Whisky a pantry staple?",
+    ],
+    content: {
+      all: {
+        stats: [
+          { value: "63%", label: "American Whiskey — Personal Use Rate", delta: "Highest personal-use rate of any category" },
+          { value: "48%", label: "Canadian Whisky — Restock Rate", delta: "Marks it as a pantry staple" },
+          { value: "38%", label: "Scotch & Japanese/Int'l Whiskey — Gifting Rate", delta: "Leads all categories in gifting" },
+        ],
+        takeaway:
+          "Most volume is driven by routine missions. The highest-growth opportunity lies in converting in-store traffic into exploratory purchases, particularly in premium and specialty categories where discovery intent is already elevated.",
+        bullets: [
+          "Personal use at home and restocking dominate purchase missions across every category: personal use ranges 33%-63%, restocking ranges 29%-51%.",
+          "Gifting is a meaningful secondary mission for higher-consideration categories — Scotch and Japanese/International Whiskey lead at 38% each.",
+          "Gin leads cocktail/recipe-driven purchase (27%); Canadian Whisky's high restock rate (48%) marks it as a pantry staple.",
+          "Exploration occasions index highest for Scotch (23%) and Japanese/International Whiskey (38%); Cordial (21%) and RTD (19%) shoppers show the highest unplanned-purchase rates.",
+        ],
+        implication:
+          "Concentrate in-store merchandising, sampling, and display investment around discovery-oriented categories (Scotch, Japanese Whiskey, gin) and impulse-prone categories (cordials, RTDs), rather than distributing evenly across the floor.",
+      },
+    },
+  },
+  {
+    id: "ch4",
+    number: "07",
+    group: "Shopper Experience",
+    title: "Information Sources / Shopping Experience",
+    framing: "Where do shoppers go to learn and decide?",
+    hasSegments: false,
+    hasChart: "info-sources",
+    questions: [
+      "How big a role do AI tools play in research today?",
+      "Why do owned channels trail despite high usefulness scores?",
+      "Which digital channel should get the most investment?",
+    ],
+    content: {
+      all: {
+        stats: [
+          { value: "50%", label: "Word of Mouth — Top Information Source", delta: "Outranks every digital channel" },
+          { value: "38%", label: "Facebook — Leading Digital Channel", delta: "Ahead of search (35%) and YouTube (34%)" },
+          { value: "12%", label: "AI Tools (e.g. ChatGPT) for Liquor Research", delta: "New metric, on par with influencers/podcasts" },
+        ],
+        takeaway:
+          "Human interaction and in-store touchpoints are the primary drivers of purchase decisions. Digital channels matter for discovery but play a secondary role.",
+        bullets: [
+          "Word of mouth (50%), in-store signage (30%), store employees (27%), and bartenders/servers (25%) all outrank every digital source.",
+          "Among digital channels, Facebook (38%), search (35%), and YouTube (34%) lead, with Instagram and TikTok close behind at 21% each.",
+          "OHLQ.com (22%) competes well, but owned channels — app (13%), social (11%), email (11%) — trail significantly.",
+          "When shoppers do use OHLQ.com, it's mostly transactional pre-trip research — checking prices (42%), checking availability (36%), and finding recipes (38%) — rather than open-ended browsing.",
+          "AI tools like ChatGPT already register at 12% in their first wave of measurement; the app drives the highest visit frequency (18% daily, 31% weekly) and owned-channel usefulness scores run 83%-89% top-2-box.",
+        ],
+        implication:
+          "Field marketing, knowledgeable staff, and in-store signage likely deliver a higher ROI than digital spend for most segments. Concentrate digital investment on Facebook, search, and YouTube, and on building app adoption among the already-engaged high-frequency user base.",
+      },
+    },
+  },
+  {
+    id: "ch5",
+    number: "08",
+    group: "Shopper Experience",
+    title: "Attributes / Drivers",
+    framing: "What do shoppers value, and how does that connect to revenue?",
+    hasSegments: true,
+    hasChart: "attribute-scatter",
+    questions: [
+      "Which cluster is hardest to satisfy on attributes?",
+      "Why did knowledgeable staff performance decline?",
+      "What's the single highest-ROI investment based on this data?",
+    ],
+    content: {
+      all: {
+        stats: [
+          { value: "0.46", label: "Convenient Shopping Experience — Top Derived Driver", delta: "Highest-ranked attribute" },
+          { value: "90%", label: "Good Value — Stated Importance", delta: "+5 pts vs. Wave 5 (85%→90%)" },
+          { value: "75%", label: "Knowledgeable Staff — Performance", delta: "-3 pts vs. Wave 5 (78%→75%)" },
+        ],
+        takeaway:
+          "Retail execution, value perception, and in-store discovery are the three revenue levers most directly supported by the attribute data. Staff knowledge is the most actionable gap.",
+        bullets: [
+          "Convenient shopping experience ranks first in derived importance (0.46), clean/organized environment second (0.45), brand trust third (0.43), easy navigation fourth (0.43), and helpful displays fifth (0.41) — the largest stated-vs-derived gap.",
+          "Good value jumped from 85% to 90% in stated importance, its largest single-wave gain.",
+          "OHLQ performs strongly on the top derived-importance attributes: assortment 86%, navigation 86%, convenience 85%.",
+          "Welcoming environment was the top derived driver in Wave 5 but dropped meaningfully in Wave 6 — loyalty now tracks more with efficiency (convenient, clean, easy to navigate) than with atmosphere.",
+          "Knowledgeable staff is the one soft spot, slipping from 78% to 75% top-2-box.",
+        ],
+        implication:
+          "Investment that strengthens planogram execution, in-store display quality, and staff product knowledge will have a more measurable impact on advocacy and revenue than brand communications alone.",
+      },
+      we: {
+        stats: [
+          { value: "88.9%", label: "Brand Trust — Agreement About OHLQ", delta: "Highest of any cluster, vs. 81.4% average" },
+          { value: "90.5%", label: "Easy to Navigate — Agreement About OHLQ", delta: "Highest of any cluster, vs. 84.5% average" },
+          { value: "82.7%", label: "Knowledgeable Staff — Agreement About OHLQ", delta: "vs. 74.3% average" },
+        ],
+        takeaway:
+          "WE currently rates OHLQ's execution higher than any other cluster — protecting that lead, especially on staff knowledge, is critical to preserving this segment's outsized advocacy.",
+        bullets: [
+          "Whisky Enthusiasts rate OHLQ higher than any other cluster on trust (88.9%), navigation (90.5%), and knowledgeable staff (82.7%).",
+          "This cluster also places above-average stated importance on staff knowledge (74.3% vs. 71.4%) and helpful displays (74.4% vs. 71.2%).",
+          "The overall 3-point staff-knowledge decline is worth watching closely for the segment that currently rates OHLQ most favorably.",
+        ],
+        implication:
+          "Pilot staff training investment first in stores and regions with high Whisky Enthusiast traffic, where both the stakes and the visibility of the return are highest.",
+      },
+      ls: {
+        stats: [
+          { value: "64.0%", label: "Helpful Displays — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 71.4% average" },
+          { value: "68.3%", label: "Knowledgeable Staff — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 74.3% average" },
+          { value: "72.7%", label: "Good Value — Agreement About OHLQ", delta: "Lowest of any cluster, vs. 77.3% average" },
+        ],
+        takeaway:
+          "LS is both the least engaged with discovery-oriented attributes and the cluster that rates OHLQ's delivery on them lowest — but this reflects lower priority, not acute dissatisfaction.",
+        bullets: [
+          "Light Spirit Drinkers rate OHLQ's performance lowest of any profiled cluster on nearly every attribute: helpful displays (64.0%), knowledgeable staff (68.3%), good value (72.7%), learn/explore (61.3%).",
+          "Stated importance for these same attributes is also lowest for LS, so the gap reflects lower engagement rather than active dissatisfaction.",
+        ],
+        implication:
+          "Prioritize checkout speed, restock ease, and price-competitiveness messaging for this segment over in-store education content, which would be reaching an audience that has told us it cares less about it.",
+      },
+      gm: {
+        stats: [
+          { value: "90.8%", label: "Convenient Shopping — Agreement About OHLQ", delta: "Highest of any cluster, vs. 82.1% average" },
+          { value: "93.1%", label: "Wide Assortment — Agreement About OHLQ", delta: "Highest of any cluster, vs. 88.0% average" },
+          { value: "95.6%", label: "Wide Assortment — Stated Importance", delta: "Highest of any cluster, vs. 84.2% average" },
+        ],
+        takeaway:
+          "GM is a high-expectation, high-satisfaction cluster on core execution attributes, but the staff-knowledge gap is the largest of any measured attribute for this segment.",
+        bullets: [
+          "Gin-Lovers Mixologists demand the most (95.6% stated importance on wide assortment, the highest of any cluster) and rate OHLQ's delivery highest on convenience (90.8%), assortment (93.1%), and clean/organized environment (85.0%).",
+          "Staff-knowledge importance (85.3%) still outpaces OHLQ's performance among this cluster (75.8%) — the largest gap of any measured attribute for this segment.",
+        ],
+        implication:
+          "Pilot cocktail-recipe end-caps and mixology-focused displays in stores with high GM concentration, and prioritize staff training investment there as well — this cluster will both notice and reward the improvement.",
+      },
+      cannabis: {
+        stats: [
+          { value: "79.5%", label: "OHLQ.com Navigation Ease (Cannabis Purchasers)", delta: "-20.5 pts vs. 100% among non-purchasers" },
+          { value: "Above Avg.", label: "Digital Discovery Engagement", delta: "Over-indexes on Facebook, Reddit, X" },
+          { value: "89.9%", label: "Very Positive Brand Opinion", delta: "+11.6 pts vs. non-purchasers" },
+        ],
+        takeaway:
+          "Attribute performance for cannabis purchasers is bifurcated: sentiment is excellent, digital usability is not.",
+        bullets: [
+          "The widest single disparity in the Wave 6 dataset is this segment's OHLQ.com navigation experience — 79.5% vs. 100% among non-purchasers.",
+          "This sits alongside otherwise excellent brand sentiment (89.9% very positive opinion).",
+        ],
+        implication:
+          "OHLQ.com UX remediation targeted at this segment is a discrete, high-ROI fix rather than a broad brand problem.",
+      },
+    },
+  },
+
+  // ───────────────────────── EMERGING TRENDS ─────────────────────────
   {
     id: "ch9",
     number: "09",
+    group: "Emerging Trends",
     title: "Emerging Trends",
     framing: "What's newly shaping the shopper landscape?",
     hasSegments: true,
@@ -870,10 +967,14 @@ const CHAPTERS = [
           { value: "12%", label: "AI Tool Usage for Liquor Research", delta: "New metric, on par with influencers/podcasts" },
           { value: "20.5 pt", label: "OHLQ.com Navigation Gap (Cannabis vs. Non)", delta: "Widest disparity in the dataset" },
         ],
-        narrative:
-          "Cannabis purchasers (51% of the sample, down 2 points from Wave 5) out-perform non-purchasers on every brand measure: awareness 66.9% vs. 55.1%, ever shopped OHLQ 57.6% vs. 43.4%, shop most often 31.8% vs. 18.1%, very positive opinion 89.9% vs. 78.3%. They also over-index on Facebook, Reddit, and X as information sources. The one exception is OHLQ.com navigation ease, where cannabis purchasers rate it at 79.5% versus 100% among non-purchasers — the largest single gap in the Wave 6 dataset. Separately, AI tools such as ChatGPT registered at 12% for liquor research in their first wave of measurement, on par with influencers and podcasts.",
         takeaway:
           "Cannabis purchasers out-perform non-purchasers on every brand measure tracked, but rate OHLQ.com navigation 20.5 points lower — the largest single disparity in the Wave 6 dataset and a specific gap within an otherwise strong relationship.",
+        bullets: [
+          "Cannabis purchasers (51% of the sample, -2 pts vs. Wave 5) out-perform non-purchasers on every brand measure: awareness, ever-shopped, shop-most-often, and very positive opinion.",
+          "They also over-index on Facebook, Reddit, and X as information sources.",
+          "The one exception is OHLQ.com navigation ease — 79.5% vs. 100% among non-purchasers, the largest single gap in the dataset.",
+          "AI tools like ChatGPT registered at 12% for liquor research in their first wave of measurement, on par with influencers and podcasts.",
+        ],
         implication:
           "OHLQ.com UX improvement for the cannabis purchaser segment, combined with social and Reddit presence where this group over-indexes, represents one of the highest-ROI near-term marketing investments available.",
       },
@@ -883,10 +984,13 @@ const CHAPTERS = [
           { value: "52.1%", label: "Cannabis Purchase Rate (Past 6 Mo.)", delta: "vs. 47.4% average" },
           { value: "42.5%", label: "Facebook Usage for Liquor Research", delta: "vs. 37.7% average" },
         ],
-        narrative:
-          "Whisky Enthusiasts show by far the highest AI-tool adoption for liquor research of any cluster (19.9% vs. 13.0% average) — nearly triple the rate of Light Spirit Drinkers (6.6%). This cluster is also above average on cannabis crossover (52.1%) and on Facebook, Reddit, and general search engagement, confirming that WE's exploration-driven mindset extends into the newest research channels, not just traditional ones.",
         takeaway:
           "Emerging-trend behaviors, especially AI-assisted research, are already concentrated in OHLQ's highest-value cluster.",
+        bullets: [
+          "Whisky Enthusiasts show by far the highest AI-tool adoption for liquor research of any cluster (19.9% vs. 13.0% average) — nearly triple the rate of Light Spirit Drinkers (6.6%).",
+          "This cluster is also above average on cannabis crossover (52.1%) and on Facebook, Reddit, and general search engagement.",
+          "WE's exploration-driven mindset extends into the newest research channels, not just traditional ones.",
+        ],
         implication:
           "Pilot AI-tool-friendly content — structured product info, FAQ-style copy — targeting Whisky Enthusiasts first, since this cluster is already the earliest adopter of the channel.",
       },
@@ -896,10 +1000,12 @@ const CHAPTERS = [
           { value: "41.3%", label: "Cannabis Purchase Rate (Past 6 Mo.)", delta: "Lowest of any cluster, vs. 47.4% average" },
           { value: "42.0%", label: "'None of the Above' for Social/Search Sources", delta: "Highest of any cluster, vs. 28.1% average" },
         ],
-        narrative:
-          "Light Spirit Drinkers show the lowest engagement with every emerging channel measured: AI tools (6.6% vs. 13.0% average), cannabis crossover (41.3% vs. 47.4%), and social/search sources broadly, with 42.0% selecting 'none of the above' for social and search tools versus 28.1% on average.",
         takeaway:
           "Emerging trends covered in this chapter are least relevant to this segment's current decision journey of any profiled cluster.",
+        bullets: [
+          "Light Spirit Drinkers show the lowest engagement with every emerging channel measured: AI tools (6.6%), cannabis crossover (41.3%), and social/search sources broadly.",
+          "42.0% select 'none of the above' for social and search tools, vs. 28.1% on average.",
+        ],
         implication:
           "Don't divert emerging-channel investment away from Whisky Enthusiasts or Gin-Lovers Mixologists in order to reach LS shoppers, who are demonstrably not there yet.",
       },
@@ -909,10 +1015,12 @@ const CHAPTERS = [
           { value: "52.9%", label: "YouTube Usage for Liquor Research", delta: "Highest of any cluster, vs. 31.5% average" },
           { value: "14.0%", label: "AI Tool Usage for Liquor Research", delta: "vs. 13.0% average" },
         ],
-        narrative:
-          "Gin-Lovers Mixologists show the highest cannabis crossover of any cluster (56.1%) and the highest YouTube usage for liquor research (52.9%, versus 31.5% average) — consistent with a segment that leans heavily on visual, recipe-driven content. AI tool usage (14.0%) is close to average, trailing Whisky Enthusiasts but still ahead of Light Spirit Drinkers.",
         takeaway:
           "GM's emerging-channel engagement is concentrated in visual and recipe-driven platforms (YouTube, Facebook) rather than AI search specifically.",
+        bullets: [
+          "Gin-Lovers Mixologists show the highest cannabis crossover of any cluster (56.1%) and the highest YouTube usage for liquor research (52.9% vs. 31.5% average).",
+          "AI tool usage (14.0%) is close to average — trailing Whisky Enthusiasts but still ahead of Light Spirit Drinkers.",
+        ],
         implication:
           "Prioritize YouTube and Facebook cocktail/recipe content for GM shoppers as the highest-reach emerging-channel investment, rather than leading with AI-search-optimized content as with Whisky Enthusiasts.",
       },
@@ -922,18 +1030,23 @@ const CHAPTERS = [
           { value: "89.9%", label: "Very Positive Brand Opinion (vs. 78.3%)", delta: "+11.6 pts" },
           { value: "79.5%", label: "OHLQ.com Navigation Ease", delta: "-20.5 pts vs. 100% among non-purchasers" },
         ],
-        narrative:
-          "This is the segment Chapter 9 is centered on: cannabis purchasers are more brand-aware, more likely to have shopped OHLQ, more likely to shop it most often, and hold more positive opinions than non-purchasers — but experience a sharply worse OHLQ.com navigation experience, the widest disparity in the entire dataset.",
         takeaway:
           "Cannabis purchasers out-perform non-purchasers on every brand metric measured, but the OHLQ.com navigation gap (79.5% vs. 100%) is the single largest disparity in Wave 6.",
+        bullets: [
+          "This is the segment the chapter is centered on: cannabis purchasers are more brand-aware, more likely to have shopped OHLQ, more likely to shop it most often, and hold more positive opinions than non-purchasers.",
+          "The exception is a sharply worse OHLQ.com navigation experience — the widest disparity in the entire dataset.",
+        ],
         implication:
           "OHLQ.com UX improvement for this segment, paired with social/Reddit presence, is one of the highest-ROI near-term investments available.",
       },
     },
   },
+
+  // ───────────────────────── APPENDIX ─────────────────────────
   {
     id: "appendix",
     number: "App.",
+    group: null,
     title: "Appendix: Supporting Resources",
     framing: "Reference material for the client team",
     hasSegments: false,
@@ -956,6 +1069,7 @@ const CHAPTERS = [
   {
     id: "security",
     number: "App.",
+    group: null,
     title: "Appendix: Security & Trust",
     framing: "How the interactive tracker is built and secured",
     hasSegments: false,
@@ -1393,7 +1507,7 @@ function ClusterReferenceTable() {
             </td>
             {cols.map((c) => (
               <td style={styles.tableCellList} key={c.key}>
-                <ul style={styles.ul}>
+                <ul style={styles.ul} className="ohlq-table-list">
                   {CLUSTER_TABLE.topCategories[c.key].map((line, i) => (
                     <li key={i} style={styles.li}>
                       {line}
@@ -1422,7 +1536,7 @@ function ClusterReferenceTable() {
             </td>
             {cols.map((c) => (
               <td style={styles.tableCellList} key={c.key}>
-                <ul style={styles.ul}>
+                <ul style={styles.ul} className="ohlq-table-list">
                   {CLUSTER_TABLE.otherCategories[c.key].map((item, i) => (
                     <li key={i} style={styles.li}>
                       {item.name}{" "}
@@ -1512,6 +1626,14 @@ const styles = {
     borderTop: `1px solid ${BORDER}`,
     margin: "12px 20px",
   },
+  navGroupLabel: {
+    fontSize: 10.5,
+    fontWeight: 800,
+    color: MUTED,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    padding: "16px 20px 6px 20px",
+  },
   main: {
     flex: 1,
     padding: "40px 56px 80px 56px",
@@ -1589,6 +1711,20 @@ const styles = {
     lineHeight: 1.7,
     color: TEXT,
     marginBottom: 28,
+  },
+  bulletList: {
+    margin: "0 0 28px 0",
+    paddingLeft: 22,
+    listStyleType: "disc",
+    listStylePosition: "outside",
+  },
+  bulletItem: {
+    fontSize: 15,
+    lineHeight: 1.6,
+    color: TEXT,
+    marginBottom: 10,
+    display: "list-item",
+    listStyleType: "disc",
   },
   chartCard: {
     border: `1px solid ${BORDER}`,
@@ -1815,10 +1951,14 @@ const styles = {
   ul: {
     margin: 0,
     paddingLeft: 16,
+    listStyleType: "disc",
+    listStylePosition: "outside",
   },
   li: {
     marginBottom: 4,
     lineHeight: 1.4,
+    display: "list-item",
+    listStyleType: "disc",
   },
   subheading: {
     fontSize: 20,
@@ -1946,6 +2086,14 @@ const styles = {
    RESPONSIVE / MOBILE CSS
    ------------------------------------------------------------- */
 const RESPONSIVE_CSS = `
+  .ohlq-bullet-list { list-style: disc outside !important; }
+  .ohlq-bullet-list li { display: list-item !important; list-style: disc outside !important; }
+  .ohlq-bullet-list li::marker { color: ${ACCENT}; font-size: 1.1em; }
+
+  .ohlq-table-list { list-style: disc outside !important; }
+  .ohlq-table-list li { display: list-item !important; list-style: disc outside !important; }
+  .ohlq-table-list li::marker { color: ${CHARCOAL}; }
+
   .ohlq-mobile-topbar { display: none; }
   .ohlq-mobile-overlay { display: none; }
   .ohlq-mobile-close-btn { display: none; }
@@ -2204,15 +2352,20 @@ export default function OHLQExplorer() {
             ✕
           </button>
         </div>
-        {CHAPTERS.map((c) => (
-          <React.Fragment key={c.id}>
-            {c.id === "appendix" && <div style={styles.navDivider} />}
-            <div style={styles.navItem(c.id === activeChapterId)} onClick={() => goToChapter(c.id)}>
-              <span style={styles.navNumber(c.id === activeChapterId)}>{c.number}</span>
-              <span style={styles.navLabel} className="ohlq-nav-item-label">{c.title}</span>
-            </div>
-          </React.Fragment>
-        ))}
+        {CHAPTERS.map((c, i) => {
+          const prevGroup = i > 0 ? CHAPTERS[i - 1].group : undefined;
+          const showGroupHeader = c.group && c.group !== prevGroup;
+          return (
+            <React.Fragment key={c.id}>
+              {c.id === "appendix" && <div style={styles.navDivider} />}
+              {showGroupHeader && <div style={styles.navGroupLabel}>{c.group}</div>}
+              <div style={styles.navItem(c.id === activeChapterId)} onClick={() => goToChapter(c.id)}>
+                <span style={styles.navNumber(c.id === activeChapterId)}>{c.number}</span>
+                <span style={styles.navLabel} className="ohlq-nav-item-label">{c.title}</span>
+              </div>
+            </React.Fragment>
+          );
+        })}
       </div>
 
       {/* MAIN */}
@@ -2222,7 +2375,7 @@ export default function OHLQExplorer() {
             ? "Executive Summary"
             : chapter.isAppendix || chapter.isSecurity
             ? "Appendix"
-            : `Chapter ${chapter.number}`}
+            : `${chapter.group} · Chapter ${chapter.number}`}
         </div>
         <h1 style={styles.chapterTitle} className="ohlq-chapter-title">{chapter.title}</h1>
         <p style={styles.framing}>{chapter.framing}</p>
@@ -2261,7 +2414,10 @@ export default function OHLQExplorer() {
               </div>
             )}
 
-            <p style={styles.narrative} className="ohlq-narrative">{content.narrative}</p>
+            <div style={styles.takeawayBox}>
+              <div style={styles.takeawayLabel}>Headline</div>
+              <p style={styles.takeawayText}>{content.takeaway}</p>
+            </div>
 
             {chapter.hasChart === "info-sources" && <InfoSourcesChart />}
             {chapter.hasChart === "awareness-trend" && <WaveTrendChart type="awareness-trend" />}
@@ -2273,10 +2429,13 @@ export default function OHLQExplorer() {
             {chapter.hasChart === "promo-comparison" && <PromotionComparisonChart />}
             {chapter.hasChart === "cannabis-cluster" && segment === "all" && <CannabisClusterChart />}
 
-            <div style={styles.takeawayBox}>
-              <div style={styles.takeawayLabel}>Key Takeaway</div>
-              <p style={styles.takeawayText}>{content.takeaway}</p>
-            </div>
+            {content.bullets && content.bullets.length > 0 && (
+              <ul style={styles.bulletList} className="ohlq-narrative ohlq-bullet-list">
+                {content.bullets.map((b, i) => (
+                  <li style={styles.bulletItem} key={i}>{b}</li>
+                ))}
+              </ul>
+            )}
 
             <div style={styles.implicationBox}>
               <div style={styles.implicationLabel}>Marketing Implication</div>
