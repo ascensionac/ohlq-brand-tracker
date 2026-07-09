@@ -1568,6 +1568,7 @@ const styles = {
     fontFamily: FONT,
     color: TEXT,
     background: "#FFFFFF",
+    textAlign: "left",
   },
   sidebar: {
     width: 260,
@@ -2086,6 +2087,8 @@ const styles = {
    RESPONSIVE / MOBILE CSS
    ------------------------------------------------------------- */
 const RESPONSIVE_CSS = `
+  .ohlq-app, .ohlq-app * { text-align: left !important; }
+
   .ohlq-bullet-list { list-style: disc outside !important; }
   .ohlq-bullet-list li { display: list-item !important; list-style: disc outside !important; }
   .ohlq-bullet-list li::marker { color: ${ACCENT}; font-size: 1.1em; }
